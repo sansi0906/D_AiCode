@@ -1,0 +1,42 @@
+# ===== Flutter 构建产物 =====
+kuaile_yingyu/build/
+kuaile_yingyu/.dart_tool/
+kuaile_yingyu/.idea/
+kuaile_yingyu/.metadata
+kuaile_yingyu/.packages
+kuaile_yingyu/.flutter-plugins
+kuaile_yingyu/.flutter-plugins-dependencies
+kuaile_yingyu/ios/
+kuaile_yingyu/android/.gradle/
+kuaile_yingyu/android/local.properties
+kuaile_yingyu/android/app/debug/
+kuaile_yingyu/android/app/profile/
+kuaile_yingyu/android/app/release/
+
+# ===== APK 构建产物（太大，不走 git）=====
+*.apk
+*.aab
+
+# ===== 中间产物 / 临时目录 =====
+POC/
+rec_analysis/
+rec_analysis2/
+rec_analysis3/
+rec_analysis4/
+录音分析/
+录音回读/
+recordings_pull/
+全册生成/
+demo/
+pc_optimize_backup/
+*.rar
+*.out
+hosts_backup_*.txt
+fix_github_hosts*.ps1
+111.docx
+一年级上册每日一练*.docx
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini

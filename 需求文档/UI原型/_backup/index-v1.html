@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>快乐英语 · 一年级 APP 可点击原型</title>
+<style>
+  :root{
+    --bg:#FFF9EE;            /* 页面背景 暖米白 */
+    --card:#FFFFFF;          /* 卡片背景 */
+    --primary:#8FD18A;       /* 主色 柔和绿 */
+    --primary-deep:#6FBF6A;  /* 主色深 */
+    --accent:#FFB35C;        /* 强调 暖橙 */
+    --star:#FFD166;          /* 星星 金 */
+    --text:#4A4A4A;          /* 正文 深灰棕 */
+    --text-light:#8C8C8C;    /* 次要文字 */
+    --danger:#F4A9A9;        /* 警示 柔和红 */
+    --radius:28px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+    background:#E8E4DA;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:20px;color:var(--text);
+  }
+  /* ===== 手机框 ===== */
+  .phone{
+    width:390px;max-width:100%;height:760px;max-height:92vh;background:var(--bg);
+    border-radius:44px;box-shadow:0 20px 60px rgba(0,0,0,.18);overflow:hidden;
+    display:flex;flex-direction:column;position:relative;border:8px solid #2E2E2E;
+  }
+  .phone.eye{background:#FFF6E5;} /* 护眼模式背景 */
+  .screen{flex:1;overflow-y:auto;display:flex;flex-direction:column;padding:20px 20px 130px;position:relative;}
+  .screen::-webkit-scrollbar{display:none;}
+
+  /* ===== 顶部栏 ===== */
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;min-height:44px;}
+  .topbar .title{font-size:24px;font-weight:800;letter-spacing:1px;}
+  .icon-btn{width:48px;height:48px;border:none;background:var(--card);border-radius:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.06);flex-shrink:0;}
+  .icon-btn:active{transform:scale(.92);}
+  .icon-btn svg{width:24px;height:24px;}
+
+  /* ===== 通用按钮 ===== */
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:24px;font-size:20px;font-weight:700;color:#fff;background:var(--primary);padding:16px 20px;cursor:pointer;box-shadow:0 4px 0 var(--primary-deep);min-height:56px;}
+  .btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--primary-deep);}
+  .btn.big{font-size:24px;min-height:72px;border-radius:30px;}
+  .btn.orange{background:var(--accent);box-shadow:0 4px 0 #E89B45;}
+  .btn.white{background:var(--card);color:var(--text);box-shadow:0 4px 0 #E4DFD2;}
+
+  /* ===== 首页：单元列表 ===== */
+  .book-tabs{display:flex;background:var(--card);border-radius:20px;padding:6px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .book-tabs button{flex:1;border:none;background:transparent;font-size:18px;font-weight:700;padding:10px 0;border-radius:16px;cursor:pointer;color:var(--text-light);}
+  .book-tabs button.on{background:var(--primary);color:#fff;}
+  .unit-list{display:flex;flex-direction:column;gap:14px;}
+  .unit-card{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:var(--radius);padding:18px 20px;box-shadow:0 2px 8px rgba(0,0,0,.05);cursor:pointer;border:none;width:100%;text-align:left;font-family:inherit;}
+  .unit-card:active{transform:scale(.98);background:#F7F7F2;}
+  .unit-num{width:56px;height:56px;border-radius:18px;background:var(--primary);color:#fff;font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .unit-card.done .unit-num{background:var(--star);}
+  .unit-info{flex:1;}
+  .unit-info .en{font-size:22px;font-weight:800;}
+  .unit-info .cn{font-size:15px;color:var(--text-light);margin-top:2px;}
+  .stars{display:flex;gap:2px;}
+  .stars svg{width:20px;height:20px;}
+
+  /* ===== 课文点读页 ===== */
+  .sentence{background:var(--card);border-radius:var(--radius);padding:20px;margin-bottom:14px;font-size:28px;font-weight:800;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.05);border:3px solid transparent;transition:all .2s;text-align:center;min-height:84px;display:flex;align-items:center;justify-content:center;}
+  .sentence.playing{border-color:var(--primary);background:#EFF7EC;color:var(--primary-deep);}
+  .read-controls{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:calc(100% - 40px);max-width:350px;background:var(--card);border-radius:28px;padding:14px 16px;box-shadow:0 -4px 20px rgba(0,0,0,.08);display:flex;gap:10px;align-items:center;}
+  .read-controls .speed{font-size:15px;font-weight:700;color:var(--text-light);background:#F3F0E7;padding:8px 12px;border-radius:14px;white-space:nowrap;}
+
+  /* ===== 跟读打分页 ===== */
+  .speak-card{background:var(--card);border-radius:32px;padding:28px 20px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+  .speak-text{font-size:34px;font-weight:800;margin-bottom:24px;}
+  .mic{width:140px;height:140px;border-radius:50%;background:var(--primary);border:none;cursor:pointer;margin:10px auto;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 0 var(--primary-deep);transition:all .2s;}
+  .mic:active{transform:scale(.94);}
+  .mic.recording{animation:pulse 1s infinite;}
+  .mic svg{width:60px;height:60px;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
+  .score-area{margin-top:24px;display:none;}
+  .score-area.show{display:block;}
+  .score-num{font-size:64px;font-weight:900;color:var(--primary-deep);line-height:1;}
+  .score-stars{display:flex;justify-content:center;gap:6px;margin:12px 0;}
+  .score-stars svg{width:36px;height:36px;}
+  .score-msg{font-size:20px;font-weight:700;color:var(--text);}
+  .tip{font-size:16px;color:var(--text-light);margin-top:14px;}
+
+  /* ===== 单词学习页 ===== */
+  .word-card{background:var(--card);border-radius:32px;padding:24px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+  .word-img{width:220px;height:220px;object-fit:contain;margin:6px auto 16px;display:block;border-radius:20px;background:#FBF8F1;}
+  .word-en{font-size:46px;font-weight:900;letter-spacing:1px;}
+  .speak-btn{display:inline-flex;align-items:center;gap:6px;background:#EFF7EC;color:var(--primary-deep);border:none;border-radius:18px;padding:10px 18px;font-size:18px;font-weight:700;cursor:pointer;margin-top:14px;}
+  .speak-btn.speaking{background:var(--primary);color:#fff;}
+  .word-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:12px;}
+  .word-nav .nav-btn{width:64px;height:64px;border-radius:22px;border:none;background:var(--card);cursor:pointer;box-shadow:0 3px 0 #E4DFD2;display:flex;align-items:center;justify-content:center;}
+  .word-nav .nav-btn:active{transform:translateY(2px);}
+  .word-nav .nav-btn svg{width:28px;height:28px;}
+  .word-dots{display:flex;gap:8px;}
+  .dot{width:12px;height:12px;border-radius:50%;background:#E4DFD2;}
+  .dot.on{background:var(--primary);}
+
+  /* ===== 设置页 ===== */
+  .set-row{display:flex;align-items:center;justify-content:space-between;background:var(--card);border-radius:22px;padding:18px 20px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .set-row .label{font-size:19px;font-weight:700;}
+  .set-row .sub{font-size:14px;color:var(--text-light);margin-top:2px;}
+  .switch{width:64px;height:36px;border-radius:18px;background:#E4DFD2;position:relative;border:none;cursor:pointer;transition:background .2s;}
+  .switch::after{content:"";position:absolute;top:4px;left:4px;width:28px;height:28px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+  .switch.on{background:var(--primary);}
+  .switch.on::after{left:32px;}
+  .link-row{cursor:pointer;border:none;width:100%;font-family:inherit;text-align:left;}
+  .link-row .arrow{color:var(--text-light);font-size:24px;font-weight:700;}
+  .link-row .label.done-mark{display:flex;align-items:center;gap:8px;}
+  .bar{height:8px;border-radius:4px;background:#F3F0E7;overflow:hidden;margin-top:8px;}
+  .bar i{display:block;height:100%;background:var(--primary);border-radius:4px;}
+
+  /* ===== 底部导航 ===== */
+  .bottom-nav{position:absolute;bottom:0;left:0;right:0;background:var(--card);display:flex;padding:10px 0 14px;box-shadow:0 -2px 10px rgba(0,0,0,.05);z-index:5;}
+  .bottom-nav button{flex:1;border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--text-light);cursor:pointer;font-family:inherit;}
+  .bottom-nav button.on{color:var(--primary-deep);}
+  .bottom-nav svg{width:26px;height:26px;}
+
+  /* toast */
+  .toast{position:absolute;top:20px;left:50%;transform:translateX(-50%) translateY(-80px);background:rgba(74,74,74,.92);color:#fff;padding:10px 22px;border-radius:18px;font-size:15px;font-weight:600;transition:transform .3s;z-index:20;white-space:nowrap;}
+  .toast.show{transform:translateX(-50%) translateY(0);}
+
+  /* 视图切换 */
+  .view{display:none;}
+  .view.on{display:flex;flex-direction:column;flex:1;}
+  .placeholder-img{width:220px;height:220px;border-radius:20px;margin:6px auto 16px;display:block;background:#FBF8F1;}
+
+  @media (max-width:440px){
+    body{padding:0;background:var(--bg);}
+    .phone{width:100%;height:100vh;max-height:none;border-radius:0;border:none;}
+    .read-controls{max-width:none;width:calc(100% - 32px);}
+  }
+</style>
+</head>
+<body>
+<div class="phone" id="phone">
+  <div class="screen" id="screen">
+
+    <!-- ===== 视图：首页 ===== -->
+    <div class="view on" id="view-home">
+      <div class="topbar">
+        <div class="title">快乐英语</div>
+        <div style="display:flex;gap:10px;">
+          <button class="icon-btn" onclick="go('word')" title="单词学习">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M9 4v16"/></svg>
+          </button>
+          <button class="icon-btn" onclick="go('settings')" title="设置">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="book-tabs">
+        <button id="tab1" class="on" onclick="switchBook(1)">上册</button>
+        <button id="tab2" onclick="switchBook(2)">下册</button>
+      </div>
+      <div class="unit-list" id="unitList"></div>
+      <div style="margin-top:16px;text-align:center;font-size:15px;color:var(--text-light);">点击单元开始学习 · 星标 = 已学完</div>
+    </div>
+
+    <!-- ===== 视图：课文点读 ===== -->
+    <div class="view" id="view-read">
+      <div class="topbar">
+        <button class="icon-btn" onclick="go('home')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="title" id="readTitle">Unit 1 Hello</div>
+        <div style="width:48px;"></div>
+      </div>
+      <div id="sentenceList"></div>
+      <div class="read-controls">
+        <span class="speed">0.8x 慢速</span>
+        <button class="btn white" style="flex:1;min-height:52px;font-size:17px;" onclick="playAll()">整篇播放</button>
+        <button class="btn orange" style="flex:1;min-height:52px;font-size:17px;" onclick="go('speak')">跟读练习</button>
+      </div>
+    </div>
+
+    <!-- ===== 视图：跟读打分 ===== -->
+    <div class="view" id="view-speak">
+      <div class="topbar">
+        <button class="icon-btn" onclick="go('read')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="title">跟读打分</div>
+        <div style="width:48px;"></div>
+      </div>
+      <div class="speak-card">
+        <div class="speak-text" id="speakText">Hello.</div>
+        <button class="mic" id="micBtn" onclick="startRecord()">
+          <svg viewBox="0 0 24 24" fill="#fff"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1M12 18v4M8 22h8"/></svg>
+        </button>
+        <div class="tip">点麦克风，跟着读一遍</div>
+        <div class="score-area" id="scoreArea">
+          <div class="score-num" id="scoreNum">96</div>
+          <div class="score-stars" id="scoreStars"></div>
+          <div class="score-msg" id="scoreMsg">真棒！发音很好</div>
+          <button class="btn white big" style="margin-top:20px;width:100%;" onclick="resetSpeak()">再读一遍</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 视图：单词学习 ===== -->
+    <div class="view" id="view-word">
+      <div class="topbar">
+        <button class="icon-btn" onclick="go('home')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="title">单词学习</div>
+        <div style="width:48px;"></div>
+      </div>
+      <div class="word-card">
+        <img class="word-img" id="wordImg" src="assets/word_hello.png" alt="hello">
+        <div class="word-en" id="wordEn">hello</div>
+        <button class="speak-btn" id="speakWordBtn" onclick="playWord()">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+          读一读
+        </button>
+      </div>
+      <div class="word-nav">
+        <button class="nav-btn" onclick="prevWord()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="word-dots" id="wordDots"></div>
+        <button class="nav-btn" onclick="nextWord()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div style="margin-top:16px;text-align:center;font-size:15px;color:var(--text-light);">点击卡片听发音，读完点亮星星</div>
+    </div>
+
+    <!-- ===== 视图：设置 ===== -->
+    <div class="view" id="view-settings">
+      <div class="topbar">
+        <button class="icon-btn" onclick="go('home')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="title">设置</div>
+        <div style="width:48px;"></div>
+      </div>
+      <div class="set-row">
+        <div><div class="label">护眼模式</div><div class="sub">柔和底色，保护眼睛</div></div>
+        <button class="switch on" id="eyeSwitch" onclick="toggleEye()"></button>
+      </div>
+      <div class="set-row">
+        <div><div class="label">离线资源</div><div class="sub" id="dlStatus">已下载 1 / 2 册</div></div>
+        <button class="btn white" style="min-height:44px;font-size:16px;padding:10px 16px;" onclick="toast('演示：这里管理离线音频包')">管理</button>
+      </div>
+      <div class="set-row">
+        <div style="flex:1;margin-right:16px;"><div class="label">音量</div><div class="bar"><i style="width:75%;" id="volBar"></i></div></div>
+        <button class="icon-btn" onclick="toast('演示：调节音量')">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+        </button>
+      </div>
+      <button class="set-row link-row" onclick="toast('演示：隐私政策页面')">
+        <div><div class="label">隐私政策</div><div class="sub">不收集任何个人信息</div></div>
+        <div class="arrow">&gt;</div>
+      </button>
+      <button class="set-row link-row" onclick="toast('演示：用户协议页面')">
+        <div><div class="label">用户协议</div><div class="sub">内部自用版本</div></div>
+        <div class="arrow">&gt;</div>
+      </button>
+      <button class="set-row link-row" onclick="toast('演示：关于本应用')">
+        <div><div class="label">关于</div><div class="sub">快乐英语 V1.0 自用版</div></div>
+        <div class="arrow">&gt;</div>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- 底部导航 -->
+  <div class="bottom-nav">
+    <button id="nav-home" class="on" onclick="go('home')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>
+      学习
+    </button>
+    <button id="nav-word" onclick="go('word')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M9 4v16"/></svg>
+      单词
+    </button>
+    <button id="nav-settings" onclick="go('settings')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+      设置
+    </button>
+  </div>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<script>
+  // ===== 数据 =====
+  var BOOKS = {
+    1: {name:"上册", units:[
+      {id:"U1", en:"Unit 1", cn:"Hello", done:true},
+      {id:"U2", en:"Unit 2", cn:"I'm Tom", done:true},
+      {id:"U3", en:"Unit 3", cn:"How are you?", done:false},
+      {id:"U4", en:"Unit 4", cn:"Book and pencil", done:false},
+      {id:"U5", en:"Unit 5", cn:"Bag", done:false},
+      {id:"U6", en:"Unit 6", cn:"Numbers 1-5", done:false}
+    ]},
+    2: {name:"下册", units:[
+      {id:"U1", en:"Unit 1", cn:"Colour", done:false},
+      {id:"U2", en:"Unit 2", cn:"Face", done:false},
+      {id:"U3", en:"Unit 3", cn:"Animals", done:false},
+      {id:"U4", en:"Unit 4", cn:"Fruit", done:false},
+      {id:"U5", en:"Unit 5", cn:"Body", done:false},
+      {id:"U6", en:"Unit 6", cn:"Numbers 6-10", done:false}
+    ]}
+  };
+  var SENTENCES = {
+    "Unit 1 Hello":["Hello.","Hi!","Goodbye."],
+    "Unit 2 I'm Tom":["I'm Tom.","I'm Amy.","Nice to see you."],
+    "Unit 3 How are you?":["How are you?","I'm fine.","Thank you."],
+    "Unit 4 Book and pencil":["This is a book.","This is a pencil.","Show me your pencil."],
+    "Unit 5 Bag":["This is a bag.","Open your bag.","Close your bag."],
+    "Unit 6 Numbers 1-5":["One.","Two.","Three.","Four.","Five."],
+    "Unit 1 Colour":["Red.","Blue.","Yellow.","Green."],
+    "Unit 2 Face":["Eye.","Ear.","Nose.","Mouth."],
+    "Unit 3 Animals":["It's a cat.","It's a dog.","It's a bird."],
+    "Unit 4 Fruit":["Apple.","Banana.","Orange."],
+    "Unit 5 Body":["Hand.","Foot.","Arm."],
+    "Unit 6 Numbers 6-10":["Six.","Seven.","Eight.","Nine.","Ten."]
+  };
+  var WORDS = [
+    {en:"hello", img:"assets/word_hello.png", done:true},
+    {en:"book",  img:"assets/word_book.png",  done:true},
+    {en:"cat",   img:"assets/word_cat.png",   done:false},
+    {en:"apple", img:"assets/word_apple.png", done:false}
+  ];
+
+  // ===== 状态 =====
+  var state = {book:1, unit:"Unit 1 Hello", wordIdx:0, eye:true};
+  var VIEWS = ["home","read","speak","word","settings"];
+
+  // ===== 星星 SVG =====
+  function starSVG(on){
+    return '<svg viewBox="0 0 24 24" fill="'+(on?'#FFD166':'#E4DFD2')+'"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3l-6.1 3.3 1.4-6.8L2.2 9.1l6.9-.8z"/></svg>';
+  }
+
+  // ===== 视图切换 =====
+  function go(v){
+    VIEWS.forEach(function(x){document.getElementById("view-"+x).classList.toggle("on", x===v);});
+    ["home","word","settings"].forEach(function(x){document.getElementById("nav-"+x).classList.toggle("on", x===v);});
+    document.getElementById("screen").scrollTop = 0;
+    renderCurrent(v);
+  }
+  window.addEventListener("hashchange", function(){go((location.hash||"#home").slice(1));});
+  if(location.hash){go(location.hash.slice(1));}
+
+  // ===== 首页 =====
+  function switchBook(n){
+    state.book = n;
+    document.getElementById("tab1").classList.toggle("on", n===1);
+    document.getElementById("tab2").classList.toggle("on", n===2);
+    renderHome();
+  }
+  function renderHome(){
+    var units = BOOKS[state.book].units;
+    var html = units.map(function(u,i){
+      return '<button class="unit-card'+(u.done?' done':'')+'" onclick="openUnit('+i+')">'+
+        '<div class="unit-num">'+(i+1)+'</div>'+
+        '<div class="unit-info"><div class="en">'+u.en+'</div><div class="cn">'+u.cn+'</div></div>'+
+        '<div class="stars">'+starSVG(u.done)+starSVG(u.done)+starSVG(u.done)+'</div>'+
+      '</button>';
+    }).join("");
+    document.getElementById("unitList").innerHTML = html;
+  }
+  function openUnit(idx){
+    var u = BOOKS[state.book].units[idx];
+    var name = u.en + ' ' + u.cn;
+    state.unit = name;
+    document.getElementById("readTitle").textContent = name;
+    var list = SENTENCES[name]||["Hello."];
+    var html = list.map(function(s){
+      return '<div class="sentence" onclick="playSentence(this)">'+s+'</div>';
+    }).join("");
+    document.getElementById("sentenceList").innerHTML = html;
+    document.getElementById("speakText").textContent = list[0];
+    go("read");
+  }
+
+  // ===== 点读 =====
+  var playingEl = null;
+  function playSentence(el){
+    if(playingEl) playingEl.classList.remove("playing");
+    el.classList.add("playing");
+    playingEl = el;
+    clearTimeout(playSentence._t);
+    playSentence._t = setTimeout(function(){el.classList.remove("playing");}, 1500);
+  }
+  function playAll(){
+    var els = document.querySelectorAll("#sentenceList .sentence");
+    var i = 0;
+    (function step(){
+      if(i >= els.length){i=0;return;}
+      els[i].classList.add("playing");
+      var cur = els[i];
+      setTimeout(function(){cur.classList.remove("playing"); i++; step();}, 900);
+    })();
+  }
+
+  // ===== 跟读打分 =====
+  function startRecord(){
+    var mic = document.getElementById("micBtn");
+    mic.classList.add("recording");
+    document.getElementById("scoreArea").classList.remove("show");
+    toast("正在听…请跟着读一遍");
+    setTimeout(function(){
+      mic.classList.remove("recording");
+      var score = 85 + Math.floor(Math.random()*14);
+      document.getElementById("scoreNum").textContent = score;
+      var stars = score>=90?3:(score>=80?2:1);
+      document.getElementById("scoreStars").innerHTML = starSVG(stars>=1)+starSVG(stars>=2)+starSVG(stars>=3);
+      document.getElementById("scoreMsg").textContent = score>=90?"真棒！发音很好":(score>=80?"不错！再练更棒":"没关系，再试一次");
+      document.getElementById("scoreArea").classList.add("show");
+      document.getElementById("screen").scrollTop = document.getElementById("screen").scrollHeight;
+    }, 2000);
+  }
+  function resetSpeak(){document.getElementById("scoreArea").classList.remove("show");}
+
+  // ===== 单词 =====
+  function renderWord(){
+    var w = WORDS[state.wordIdx];
+    document.getElementById("wordImg").src = w.img;
+    document.getElementById("wordEn").textContent = w.en;
+    document.getElementById("wordDots").innerHTML = WORDS.map(function(_,i){return '<span class="dot'+(i===state.wordIdx?' on':'')+'"></span>';}).join("");
+  }
+  function nextWord(){state.wordIdx = (state.wordIdx+1)%WORDS.length; renderWord();}
+  function prevWord(){state.wordIdx = (state.wordIdx-1+WORDS.length)%WORDS.length; renderWord();}
+  function playWord(){
+    var b = document.getElementById("speakWordBtn");
+    b.classList.add("speaking");
+    b.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3z"/></svg> 播放中…';
+    setTimeout(function(){b.classList.remove("speaking"); b.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg> 读一读';}, 1500);
+  }
+
+  // ===== 设置 =====
+  function toggleEye(){
+    state.eye = !state.eye;
+    document.getElementById("eyeSwitch").classList.toggle("on", state.eye);
+    document.getElementById("phone").classList.toggle("eye", state.eye);
+    toast(state.eye?"已开启护眼模式":"已关闭护眼模式");
+  }
+  function renderCurrent(v){
+    if(v==="home") renderHome();
+    if(v==="word") renderWord();
+  }
+
+  // ===== Toast =====
+  var toastTimer = null;
+  function toast(msg){
+    var t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){t.classList.remove("show");}, 1800);
+  }
+
+  renderHome();
+  renderWord();
+</script>
+</body>
+</html>

@@ -1,0 +1,1733 @@
+{
+  "app_name": "快乐英语",
+  "grade_support": [
+    1,
+    2
+  ],
+  "textbook": "天津新蕾出版社《快乐英语》1-2年级（第1-4册）",
+  "version": "1.1",
+  "resource_note": "audio/image 为 APP 资源相对路径（bookN/ 目录，同 id 条目靠 book 目录物理隔离）；音频规范 MP3/44100Hz/单声道/128kbps；配图 800x800 PNG、简约2D卡通、白底、无内嵌文字；image_desc 为按文本自动生成的备注描述，开发以图片文件内容为准",
+  "books": [
+    {
+      "book_id": 1,
+      "book_name": "上册",
+      "book_name_en": "Book 1",
+      "units": [
+        {
+          "unit_id": 1,
+          "title": "Unit 1 Hello",
+          "title_en": "Hello",
+          "sentences": [
+            {
+              "id": "U1_S1",
+              "text": "Hello.",
+              "audio": "book1/U1_S1.mp3",
+              "image": "book1/U1_S1.png",
+              "image_desc": "小朋友挥手卡通图"
+            },
+            {
+              "id": "U1_S2",
+              "text": "Hi!",
+              "audio": "book1/U1_S2.mp3",
+              "image": "book1/U1_S2.png",
+              "image_desc": "笑脸卡通小人"
+            },
+            {
+              "id": "U1_S3",
+              "text": "Goodbye.",
+              "audio": "book1/U1_S3.mp3",
+              "image": "book1/U1_S3.png",
+              "image_desc": "挥手再见"
+            }
+          ],
+          "words": [
+            {
+              "id": "U1_W1",
+              "text": "hello",
+              "audio": "book1/U1_W1.mp3",
+              "image": "book1/U1_W1.png",
+              "image_desc": "挥手小朋友",
+              "meaning": "你好"
+            },
+            {
+              "id": "U1_W2",
+              "text": "hi",
+              "audio": "book1/U1_W2.mp3",
+              "image": "book1/U1_W2.png",
+              "image_desc": "笑脸",
+              "meaning": "嗨"
+            },
+            {
+              "id": "U1_W3",
+              "text": "goodbye",
+              "audio": "book1/U1_W3.mp3",
+              "image": "book1/U1_W3.png",
+              "image_desc": "挥手告别",
+              "meaning": "再见"
+            }
+          ]
+        },
+        {
+          "unit_id": 2,
+          "title": "Unit 2 I’m Tom",
+          "title_en": "I’m Tom",
+          "sentences": [
+            {
+              "id": "U2_S1",
+              "text": "I’m Tom.",
+              "audio": "book1/U2_S1.mp3",
+              "image": "book1/U2_S1.png",
+              "image_desc": "小男孩Tom卡通形象"
+            },
+            {
+              "id": "U2_S2",
+              "text": "I’m Amy.",
+              "audio": "book1/U2_S2.mp3",
+              "image": "book1/U2_S2.png",
+              "image_desc": "小女孩Amy卡通形象"
+            },
+            {
+              "id": "U2_S3",
+              "text": "Nice to see you.",
+              "audio": "book1/U2_S3.mp3",
+              "image": "book1/U2_S3.png",
+              "image_desc": "两个小朋友见面微笑"
+            }
+          ],
+          "words": [
+            {
+              "id": "U2_W1",
+              "text": "I",
+              "audio": "book1/U2_W1.mp3",
+              "image": "book1/U2_W1.png",
+              "image_desc": "小人简笔画",
+              "meaning": "我"
+            },
+            {
+              "id": "U2_W2",
+              "text": "Tom",
+              "audio": "book1/U2_W2.mp3",
+              "image": "book1/U2_W2.png",
+              "image_desc": "男孩卡通",
+              "meaning": "汤姆"
+            },
+            {
+              "id": "U2_W3",
+              "text": "Amy",
+              "audio": "book1/U2_W3.mp3",
+              "image": "book1/U2_W3.png",
+              "image_desc": "女孩卡通",
+              "meaning": "埃米"
+            }
+          ]
+        },
+        {
+          "unit_id": 3,
+          "title": "Unit 3 How are you?",
+          "title_en": "How are you?",
+          "sentences": [
+            {
+              "id": "U3_S1",
+              "text": "How are you?",
+              "audio": "book1/U3_S1.mp3",
+              "image": "book1/U3_S1.png",
+              "image_desc": "小朋友互相问候"
+            },
+            {
+              "id": "U3_S2",
+              "text": "I’m fine.",
+              "audio": "book1/U3_S2.mp3",
+              "image": "book1/U3_S2.png",
+              "image_desc": "开心小朋友"
+            },
+            {
+              "id": "U3_S3",
+              "text": "Thank you.",
+              "audio": "book1/U3_S3.mp3",
+              "image": "book1/U3_S3.png",
+              "image_desc": "双手比心"
+            }
+          ],
+          "words": [
+            {
+              "id": "U3_W1",
+              "text": "how",
+              "audio": "book1/U3_W1.mp3",
+              "image": "book1/U3_W1.png",
+              "image_desc": "问号卡通图标",
+              "meaning": "怎样"
+            },
+            {
+              "id": "U3_W2",
+              "text": "fine",
+              "audio": "book1/U3_W2.mp3",
+              "image": "book1/U3_W2.png",
+              "image_desc": "微笑小朋友",
+              "meaning": "好的"
+            },
+            {
+              "id": "U3_W3",
+              "text": "thank you",
+              "audio": "book1/U3_W3.mp3",
+              "image": "book1/U3_W3.png",
+              "image_desc": "爱心图标",
+              "meaning": "谢谢"
+            }
+          ]
+        },
+        {
+          "unit_id": 4,
+          "title": "Unit 4 Book and pencil",
+          "title_en": "Book and pencil",
+          "sentences": [
+            {
+              "id": "U4_S1",
+              "text": "This is a book.",
+              "audio": "book1/U4_S1.mp3",
+              "image": "book1/U4_S1.png",
+              "image_desc": "卡通书本"
+            },
+            {
+              "id": "U4_S2",
+              "text": "This is a pencil.",
+              "audio": "book1/U4_S2.mp3",
+              "image": "book1/U4_S2.png",
+              "image_desc": "卡通铅笔"
+            },
+            {
+              "id": "U4_S3",
+              "text": "Show me your pencil.",
+              "audio": "book1/U4_S3.mp3",
+              "image": "book1/U4_S3.png",
+              "image_desc": "小朋友举铅笔"
+            }
+          ],
+          "words": [
+            {
+              "id": "U4_W1",
+              "text": "book",
+              "audio": "book1/U4_W1.mp3",
+              "image": "book1/U4_W1.png",
+              "image_desc": "卡通书",
+              "meaning": "书"
+            },
+            {
+              "id": "U4_W2",
+              "text": "pencil",
+              "audio": "book1/U4_W2.mp3",
+              "image": "book1/U4_W2.png",
+              "image_desc": "卡通铅笔",
+              "meaning": "铅笔"
+            },
+            {
+              "id": "U4_W3",
+              "text": "show",
+              "audio": "book1/U4_W3.mp3",
+              "image": "book1/U4_W3.png",
+              "image_desc": "手展示动作图",
+              "meaning": "出示"
+            }
+          ]
+        },
+        {
+          "unit_id": 5,
+          "title": "Unit 5 Bag",
+          "title_en": "Bag",
+          "sentences": [
+            {
+              "id": "U5_S1",
+              "text": "This is a bag.",
+              "audio": "book1/U5_S1.mp3",
+              "image": "book1/U5_S1.png",
+              "image_desc": "卡通书包"
+            },
+            {
+              "id": "U5_S2",
+              "text": "Open your bag.",
+              "audio": "book1/U5_S2.mp3",
+              "image": "book1/U5_S2.png",
+              "image_desc": "打开书包动作"
+            },
+            {
+              "id": "U5_S3",
+              "text": "Close your bag.",
+              "audio": "book1/U5_S3.mp3",
+              "image": "book1/U5_S3.png",
+              "image_desc": "合上书包动作"
+            }
+          ],
+          "words": [
+            {
+              "id": "U5_W1",
+              "text": "bag",
+              "audio": "book1/U5_W1.mp3",
+              "image": "book1/U5_W1.png",
+              "image_desc": "卡通书包",
+              "meaning": "书包"
+            },
+            {
+              "id": "U5_W2",
+              "text": "open",
+              "audio": "book1/U5_W2.mp3",
+              "image": "book1/U5_W2.png",
+              "image_desc": "打开图标",
+              "meaning": "打开"
+            },
+            {
+              "id": "U5_W3",
+              "text": "close",
+              "audio": "book1/U5_W3.mp3",
+              "image": "book1/U5_W3.png",
+              "image_desc": "关闭图标",
+              "meaning": "合上"
+            }
+          ]
+        },
+        {
+          "unit_id": 6,
+          "title": "Unit 6 Numbers 1-5",
+          "title_en": "Numbers 1-5",
+          "sentences": [
+            {
+              "id": "U6_S1",
+              "text": "One.",
+              "audio": "book1/U6_S1.mp3",
+              "image": "book1/U6_S1.png",
+              "image_desc": "数字1卡通"
+            },
+            {
+              "id": "U6_S2",
+              "text": "Two.",
+              "audio": "book1/U6_S2.mp3",
+              "image": "book1/U6_S2.png",
+              "image_desc": "数字2卡通"
+            },
+            {
+              "id": "U6_S3",
+              "text": "Three.",
+              "audio": "book1/U6_S3.mp3",
+              "image": "book1/U6_S3.png",
+              "image_desc": "数字3卡通"
+            },
+            {
+              "id": "U6_S4",
+              "text": "Four.",
+              "audio": "book1/U6_S4.mp3",
+              "image": "book1/U6_S4.png",
+              "image_desc": "数字4卡通"
+            },
+            {
+              "id": "U6_S5",
+              "text": "Five.",
+              "audio": "book1/U6_S5.mp3",
+              "image": "book1/U6_S5.png",
+              "image_desc": "数字5卡通"
+            }
+          ],
+          "words": [
+            {
+              "id": "U6_W1",
+              "text": "one",
+              "audio": "book1/U6_W1.mp3",
+              "image": "book1/U6_W1.png",
+              "image_desc": "数字1",
+              "meaning": "一"
+            },
+            {
+              "id": "U6_W2",
+              "text": "two",
+              "audio": "book1/U6_W2.mp3",
+              "image": "book1/U6_W2.png",
+              "image_desc": "数字2",
+              "meaning": "二"
+            },
+            {
+              "id": "U6_W3",
+              "text": "three",
+              "audio": "book1/U6_W3.mp3",
+              "image": "book1/U6_W3.png",
+              "image_desc": "数字3",
+              "meaning": "三"
+            },
+            {
+              "id": "U6_W4",
+              "text": "four",
+              "audio": "book1/U6_W4.mp3",
+              "image": "book1/U6_W4.png",
+              "image_desc": "数字4",
+              "meaning": "四"
+            },
+            {
+              "id": "U6_W5",
+              "text": "five",
+              "audio": "book1/U6_W5.mp3",
+              "image": "book1/U6_W5.png",
+              "image_desc": "数字5",
+              "meaning": "五"
+            }
+          ]
+        }
+      ],
+      "grade": 1
+    },
+    {
+      "book_id": 2,
+      "book_name": "下册",
+      "book_name_en": "Book 2",
+      "units": [
+        {
+          "unit_id": 1,
+          "title": "Unit 1 Colour",
+          "title_en": "Colour",
+          "sentences": [
+            {
+              "id": "U1_S1",
+              "text": "Red.",
+              "audio": "book2/U1_S1.mp3",
+              "image": "book2/U1_S1.png",
+              "image_desc": "红色苹果卡通"
+            },
+            {
+              "id": "U1_S2",
+              "text": "Blue.",
+              "audio": "book2/U1_S2.mp3",
+              "image": "book2/U1_S2.png",
+              "image_desc": "蓝色天空卡通"
+            },
+            {
+              "id": "U1_S3",
+              "text": "Yellow.",
+              "audio": "book2/U1_S3.mp3",
+              "image": "book2/U1_S3.png",
+              "image_desc": "黄色香蕉卡通"
+            },
+            {
+              "id": "U1_S4",
+              "text": "Green.",
+              "audio": "book2/U1_S4.mp3",
+              "image": "book2/U1_S4.png",
+              "image_desc": "绿色树叶卡通"
+            }
+          ],
+          "words": [
+            {
+              "id": "U1_W1",
+              "text": "red",
+              "audio": "book2/U1_W1.mp3",
+              "image": "book2/U1_W1.png",
+              "image_desc": "红苹果",
+              "meaning": "红色"
+            },
+            {
+              "id": "U1_W2",
+              "text": "blue",
+              "audio": "book2/U1_W2.mp3",
+              "image": "book2/U1_W2.png",
+              "image_desc": "蓝天",
+              "meaning": "蓝色"
+            },
+            {
+              "id": "U1_W3",
+              "text": "yellow",
+              "audio": "book2/U1_W3.mp3",
+              "image": "book2/U1_W3.png",
+              "image_desc": "香蕉",
+              "meaning": "黄色"
+            },
+            {
+              "id": "U1_W4",
+              "text": "green",
+              "audio": "book2/U1_W4.mp3",
+              "image": "book2/U1_W4.png",
+              "image_desc": "绿叶",
+              "meaning": "绿色"
+            }
+          ]
+        },
+        {
+          "unit_id": 2,
+          "title": "Unit 2 Face",
+          "title_en": "Face",
+          "sentences": [
+            {
+              "id": "U2_S1",
+              "text": "Eye.",
+              "audio": "book2/U2_S1.mp3",
+              "image": "book2/U2_S1.png",
+              "image_desc": "卡通大眼睛"
+            },
+            {
+              "id": "U2_S2",
+              "text": "Ear.",
+              "audio": "book2/U2_S2.mp3",
+              "image": "book2/U2_S2.png",
+              "image_desc": "卡通耳朵"
+            },
+            {
+              "id": "U2_S3",
+              "text": "Nose.",
+              "audio": "book2/U2_S3.mp3",
+              "image": "book2/U2_S3.png",
+              "image_desc": "卡通鼻子"
+            },
+            {
+              "id": "U2_S4",
+              "text": "Mouth.",
+              "audio": "book2/U2_S4.mp3",
+              "image": "book2/U2_S4.png",
+              "image_desc": "卡通嘴巴"
+            }
+          ],
+          "words": [
+            {
+              "id": "U2_W1",
+              "text": "eye",
+              "audio": "book2/U2_W1.mp3",
+              "image": "book2/U2_W1.png",
+              "image_desc": "眼睛",
+              "meaning": "眼睛"
+            },
+            {
+              "id": "U2_W2",
+              "text": "ear",
+              "audio": "book2/U2_W2.mp3",
+              "image": "book2/U2_W2.png",
+              "image_desc": "耳朵",
+              "meaning": "耳朵"
+            },
+            {
+              "id": "U2_W3",
+              "text": "nose",
+              "audio": "book2/U2_W3.mp3",
+              "image": "book2/U2_W3.png",
+              "image_desc": "鼻子",
+              "meaning": "鼻子"
+            },
+            {
+              "id": "U2_W4",
+              "text": "mouth",
+              "audio": "book2/U2_W4.mp3",
+              "image": "book2/U2_W4.png",
+              "image_desc": "嘴巴",
+              "meaning": "嘴巴"
+            }
+          ]
+        },
+        {
+          "unit_id": 3,
+          "title": "Unit 3 Animals",
+          "title_en": "Animals",
+          "sentences": [
+            {
+              "id": "U3_S1",
+              "text": "It’s a cat.",
+              "audio": "book2/U3_S1.mp3",
+              "image": "book2/U3_S1.png",
+              "image_desc": "卡通小猫"
+            },
+            {
+              "id": "U3_S2",
+              "text": "It’s a dog.",
+              "audio": "book2/U3_S2.mp3",
+              "image": "book2/U3_S2.png",
+              "image_desc": "卡通小狗"
+            },
+            {
+              "id": "U3_S3",
+              "text": "It’s a bird.",
+              "audio": "book2/U3_S3.mp3",
+              "image": "book2/U3_S3.png",
+              "image_desc": "卡通小鸟"
+            }
+          ],
+          "words": [
+            {
+              "id": "U3_W1",
+              "text": "cat",
+              "audio": "book2/U3_W1.mp3",
+              "image": "book2/U3_W1.png",
+              "image_desc": "小猫",
+              "meaning": "猫"
+            },
+            {
+              "id": "U3_W2",
+              "text": "dog",
+              "audio": "book2/U3_W2.mp3",
+              "image": "book2/U3_W2.png",
+              "image_desc": "小狗",
+              "meaning": "狗"
+            },
+            {
+              "id": "U3_W3",
+              "text": "bird",
+              "audio": "book2/U3_W3.mp3",
+              "image": "book2/U3_W3.png",
+              "image_desc": "小鸟",
+              "meaning": "鸟"
+            }
+          ]
+        },
+        {
+          "unit_id": 4,
+          "title": "Unit 4 Fruit",
+          "title_en": "Fruit",
+          "sentences": [
+            {
+              "id": "U4_S1",
+              "text": "Apple.",
+              "audio": "book2/U4_S1.mp3",
+              "image": "book2/U4_S1.png",
+              "image_desc": "苹果卡通"
+            },
+            {
+              "id": "U4_S2",
+              "text": "Banana.",
+              "audio": "book2/U4_S2.mp3",
+              "image": "book2/U4_S2.png",
+              "image_desc": "香蕉卡通"
+            },
+            {
+              "id": "U4_S3",
+              "text": "Orange.",
+              "audio": "book2/U4_S3.mp3",
+              "image": "book2/U4_S3.png",
+              "image_desc": "橙子卡通"
+            }
+          ],
+          "words": [
+            {
+              "id": "U4_W1",
+              "text": "apple",
+              "audio": "book2/U4_W1.mp3",
+              "image": "book2/U4_W1.png",
+              "image_desc": "苹果",
+              "meaning": "苹果"
+            },
+            {
+              "id": "U4_W2",
+              "text": "banana",
+              "audio": "book2/U4_W2.mp3",
+              "image": "book2/U4_W2.png",
+              "image_desc": "香蕉",
+              "meaning": "香蕉"
+            },
+            {
+              "id": "U4_W3",
+              "text": "orange",
+              "audio": "book2/U4_W3.mp3",
+              "image": "book2/U4_W3.png",
+              "image_desc": "橙子",
+              "meaning": "橙子"
+            }
+          ]
+        },
+        {
+          "unit_id": 5,
+          "title": "Unit 5 Body",
+          "title_en": "Body",
+          "sentences": [
+            {
+              "id": "U5_S1",
+              "text": "Hand.",
+              "audio": "book2/U5_S1.mp3",
+              "image": "book2/U5_S1.png",
+              "image_desc": "卡通小手"
+            },
+            {
+              "id": "U5_S2",
+              "text": "Foot.",
+              "audio": "book2/U5_S2.mp3",
+              "image": "book2/U5_S2.png",
+              "image_desc": "卡通小脚"
+            },
+            {
+              "id": "U5_S3",
+              "text": "Arm.",
+              "audio": "book2/U5_S3.mp3",
+              "image": "book2/U5_S3.png",
+              "image_desc": "卡通胳膊"
+            }
+          ],
+          "words": [
+            {
+              "id": "U5_W1",
+              "text": "hand",
+              "audio": "book2/U5_W1.mp3",
+              "image": "book2/U5_W1.png",
+              "image_desc": "手",
+              "meaning": "手"
+            },
+            {
+              "id": "U5_W2",
+              "text": "foot",
+              "audio": "book2/U5_W2.mp3",
+              "image": "book2/U5_W2.png",
+              "image_desc": "脚",
+              "meaning": "脚"
+            },
+            {
+              "id": "U5_W3",
+              "text": "arm",
+              "audio": "book2/U5_W3.mp3",
+              "image": "book2/U5_W3.png",
+              "image_desc": "胳膊",
+              "meaning": "手臂"
+            }
+          ]
+        },
+        {
+          "unit_id": 6,
+          "title": "Unit 6 Numbers 6-10",
+          "title_en": "Numbers 6-10",
+          "sentences": [
+            {
+              "id": "U6_S1",
+              "text": "Six.",
+              "audio": "book2/U6_S1.mp3",
+              "image": "book2/U6_S1.png",
+              "image_desc": "数字6卡通"
+            },
+            {
+              "id": "U6_S2",
+              "text": "Seven.",
+              "audio": "book2/U6_S2.mp3",
+              "image": "book2/U6_S2.png",
+              "image_desc": "数字7卡通"
+            },
+            {
+              "id": "U6_S3",
+              "text": "Eight.",
+              "audio": "book2/U6_S3.mp3",
+              "image": "book2/U6_S3.png",
+              "image_desc": "数字8卡通"
+            },
+            {
+              "id": "U6_S4",
+              "text": "Nine.",
+              "audio": "book2/U6_S4.mp3",
+              "image": "book2/U6_S4.png",
+              "image_desc": "数字9卡通"
+            },
+            {
+              "id": "U6_S5",
+              "text": "Ten.",
+              "audio": "book2/U6_S5.mp3",
+              "image": "book2/U6_S5.png",
+              "image_desc": "数字10卡通"
+            }
+          ],
+          "words": [
+            {
+              "id": "U6_W1",
+              "text": "six",
+              "audio": "book2/U6_W1.mp3",
+              "image": "book2/U6_W1.png",
+              "image_desc": "数字6",
+              "meaning": "六"
+            },
+            {
+              "id": "U6_W2",
+              "text": "seven",
+              "audio": "book2/U6_W2.mp3",
+              "image": "book2/U6_W2.png",
+              "image_desc": "数字7",
+              "meaning": "七"
+            },
+            {
+              "id": "U6_W3",
+              "text": "eight",
+              "audio": "book2/U6_W3.mp3",
+              "image": "book2/U6_W3.png",
+              "image_desc": "数字8",
+              "meaning": "八"
+            },
+            {
+              "id": "U6_W4",
+              "text": "nine",
+              "audio": "book2/U6_W4.mp3",
+              "image": "book2/U6_W4.png",
+              "image_desc": "数字9",
+              "meaning": "九"
+            },
+            {
+              "id": "U6_W5",
+              "text": "ten",
+              "audio": "book2/U6_W5.mp3",
+              "image": "book2/U6_W5.png",
+              "image_desc": "数字10",
+              "meaning": "十"
+            }
+          ]
+        }
+      ],
+      "grade": 1
+    },
+    {
+      "book_id": 3,
+      "book_name": "二年级上册",
+      "book_name_en": "Book 3",
+      "grade": 2,
+      "units": [
+        {
+          "unit_id": 1,
+          "title": "Unit 1 Toys",
+          "title_en": "Toys",
+          "sentences": [
+            {
+              "id": "U1_S1",
+              "text": "Look at my robot.",
+              "audio": "book3/U1_S1.mp3",
+              "image": "book3/U1_S1.png",
+              "image_desc": "Look at my robot. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U1_S2",
+              "text": "Look at my toy truck. Wow! Good!",
+              "audio": "book3/U1_S2.mp3",
+              "image": "book3/U1_S2.png",
+              "image_desc": "Look at my toy truck. Wow! Good! 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U1_S3",
+              "text": "Let's play together.",
+              "audio": "book3/U1_S3.mp3",
+              "image": "book3/U1_S3.png",
+              "image_desc": "Let's play together. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U1_S4",
+              "text": "I have a toy truck. Beep, beep...",
+              "audio": "book3/U1_S4.mp3",
+              "image": "book3/U1_S4.png",
+              "image_desc": "I have a toy truck. Beep, beep... 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U1_S5",
+              "text": "Do you have a robot?",
+              "audio": "book3/U1_S5.mp3",
+              "image": "book3/U1_S5.png",
+              "image_desc": "Do you have a robot? 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U1_W1",
+              "text": "toy truck",
+              "audio": "book3/U1_W1.mp3",
+              "image": "book3/U1_W1.png",
+              "image_desc": "toy truck 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "玩具卡车"
+            },
+            {
+              "id": "U1_W2",
+              "text": "toy jeep",
+              "audio": "book3/U1_W2.mp3",
+              "image": "book3/U1_W2.png",
+              "image_desc": "toy jeep 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "玩具吉普车"
+            },
+            {
+              "id": "U1_W3",
+              "text": "toy digger",
+              "audio": "book3/U1_W3.mp3",
+              "image": "book3/U1_W3.png",
+              "image_desc": "toy digger 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "玩具挖掘机"
+            },
+            {
+              "id": "U1_W4",
+              "text": "robot",
+              "audio": "book3/U1_W4.mp3",
+              "image": "book3/U1_W4.png",
+              "image_desc": "robot 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "机器人"
+            },
+            {
+              "id": "U1_W5",
+              "text": "building blocks",
+              "audio": "book3/U1_W5.mp3",
+              "image": "book3/U1_W5.png",
+              "image_desc": "building blocks 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "积木"
+            }
+          ]
+        },
+        {
+          "unit_id": 2,
+          "title": "Unit 2 Shapes",
+          "title_en": "Shapes",
+          "sentences": [
+            {
+              "id": "U2_S1",
+              "text": "It's a square.",
+              "audio": "book3/U2_S1.mp3",
+              "image": "book3/U2_S1.png",
+              "image_desc": "It's a square. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U2_S2",
+              "text": "What shape is it?",
+              "audio": "book3/U2_S2.mp3",
+              "image": "book3/U2_S2.png",
+              "image_desc": "What shape is it? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U2_S3",
+              "text": "It's a diamond.",
+              "audio": "book3/U2_S3.mp3",
+              "image": "book3/U2_S3.png",
+              "image_desc": "It's a diamond. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U2_S4",
+              "text": "It's a triangle.",
+              "audio": "book3/U2_S4.mp3",
+              "image": "book3/U2_S4.png",
+              "image_desc": "It's a triangle. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U2_S5",
+              "text": "I can draw a triangle.",
+              "audio": "book3/U2_S5.mp3",
+              "image": "book3/U2_S5.png",
+              "image_desc": "I can draw a triangle. 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U2_W1",
+              "text": "square",
+              "audio": "book3/U2_W1.mp3",
+              "image": "book3/U2_W1.png",
+              "image_desc": "square 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "正方形"
+            },
+            {
+              "id": "U2_W2",
+              "text": "triangle",
+              "audio": "book3/U2_W2.mp3",
+              "image": "book3/U2_W2.png",
+              "image_desc": "triangle 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "三角形"
+            },
+            {
+              "id": "U2_W3",
+              "text": "rectangle",
+              "audio": "book3/U2_W3.mp3",
+              "image": "book3/U2_W3.png",
+              "image_desc": "rectangle 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "长方形"
+            },
+            {
+              "id": "U2_W4",
+              "text": "heart",
+              "audio": "book3/U2_W4.mp3",
+              "image": "book3/U2_W4.png",
+              "image_desc": "heart 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "心形"
+            },
+            {
+              "id": "U2_W5",
+              "text": "diamond",
+              "audio": "book3/U2_W5.mp3",
+              "image": "book3/U2_W5.png",
+              "image_desc": "diamond 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "菱形"
+            }
+          ]
+        },
+        {
+          "unit_id": 3,
+          "title": "Unit 3 My School",
+          "title_en": "My School",
+          "sentences": [
+            {
+              "id": "U3_S1",
+              "text": "This is our school.",
+              "audio": "book3/U3_S1.mp3",
+              "image": "book3/U3_S1.png",
+              "image_desc": "This is our school. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U3_S2",
+              "text": "Welcome to our school!",
+              "audio": "book3/U3_S2.mp3",
+              "image": "book3/U3_S2.png",
+              "image_desc": "Welcome to our school! 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U3_S3",
+              "text": "This is our classroom.",
+              "audio": "book3/U3_S3.mp3",
+              "image": "book3/U3_S3.png",
+              "image_desc": "This is our classroom. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U3_S4",
+              "text": "This is our gym.",
+              "audio": "book3/U3_S4.mp3",
+              "image": "book3/U3_S4.png",
+              "image_desc": "This is our gym. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U3_S5",
+              "text": "This way, please.",
+              "audio": "book3/U3_S5.mp3",
+              "image": "book3/U3_S5.png",
+              "image_desc": "This way, please. 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U3_W1",
+              "text": "school",
+              "audio": "book3/U3_W1.mp3",
+              "image": "book3/U3_W1.png",
+              "image_desc": "school 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "学校"
+            },
+            {
+              "id": "U3_W2",
+              "text": "classroom",
+              "audio": "book3/U3_W2.mp3",
+              "image": "book3/U3_W2.png",
+              "image_desc": "classroom 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "教室"
+            },
+            {
+              "id": "U3_W3",
+              "text": "library",
+              "audio": "book3/U3_W3.mp3",
+              "image": "book3/U3_W3.png",
+              "image_desc": "library 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "图书馆"
+            },
+            {
+              "id": "U3_W4",
+              "text": "music room",
+              "audio": "book3/U3_W4.mp3",
+              "image": "book3/U3_W4.png",
+              "image_desc": "music room 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "音乐教室"
+            },
+            {
+              "id": "U3_W5",
+              "text": "gym",
+              "audio": "book3/U3_W5.mp3",
+              "image": "book3/U3_W5.png",
+              "image_desc": "gym 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "体育馆"
+            }
+          ]
+        },
+        {
+          "unit_id": 4,
+          "title": "Unit 4 In the Classroom",
+          "title_en": "In the Classroom",
+          "sentences": [
+            {
+              "id": "U4_S1",
+              "text": "Come to the blackboard, please.",
+              "audio": "book3/U4_S1.mp3",
+              "image": "book3/U4_S1.png",
+              "image_desc": "Come to the blackboard, please. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U4_S2",
+              "text": "OK. We are coming.",
+              "audio": "book3/U4_S2.mp3",
+              "image": "book3/U4_S2.png",
+              "image_desc": "OK. We are coming. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U4_S3",
+              "text": "Come to the desk, please.",
+              "audio": "book3/U4_S3.mp3",
+              "image": "book3/U4_S3.png",
+              "image_desc": "Come to the desk, please. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U4_S4",
+              "text": "OK. I'm coming.",
+              "audio": "book3/U4_S4.mp3",
+              "image": "book3/U4_S4.png",
+              "image_desc": "OK. I'm coming. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U4_S5",
+              "text": "What's this?",
+              "audio": "book3/U4_S5.mp3",
+              "image": "book3/U4_S5.png",
+              "image_desc": "What's this? 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U4_W1",
+              "text": "blackboard",
+              "audio": "book3/U4_W1.mp3",
+              "image": "book3/U4_W1.png",
+              "image_desc": "blackboard 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "黑板"
+            },
+            {
+              "id": "U4_W2",
+              "text": "door",
+              "audio": "book3/U4_W2.mp3",
+              "image": "book3/U4_W2.png",
+              "image_desc": "door 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "门"
+            },
+            {
+              "id": "U4_W3",
+              "text": "window",
+              "audio": "book3/U4_W3.mp3",
+              "image": "book3/U4_W3.png",
+              "image_desc": "window 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "窗户"
+            },
+            {
+              "id": "U4_W4",
+              "text": "desk",
+              "audio": "book3/U4_W4.mp3",
+              "image": "book3/U4_W4.png",
+              "image_desc": "desk 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "课桌"
+            },
+            {
+              "id": "U4_W5",
+              "text": "chair",
+              "audio": "book3/U4_W5.mp3",
+              "image": "book3/U4_W5.png",
+              "image_desc": "chair 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "椅子"
+            }
+          ]
+        },
+        {
+          "unit_id": 5,
+          "title": "Unit 5 My Favourite Subject",
+          "title_en": "My Favourite Subject",
+          "sentences": [
+            {
+              "id": "U5_S1",
+              "text": "English is my favourite subject.",
+              "audio": "book3/U5_S1.mp3",
+              "image": "book3/U5_S1.png",
+              "image_desc": "English is my favourite subject. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U5_S2",
+              "text": "What's your favourite subject?",
+              "audio": "book3/U5_S2.mp3",
+              "image": "book3/U5_S2.png",
+              "image_desc": "What's your favourite subject? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U5_S3",
+              "text": "It's English, of course.",
+              "audio": "book3/U5_S3.mp3",
+              "image": "book3/U5_S3.png",
+              "image_desc": "It's English, of course. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U5_S4",
+              "text": "I think it's maths.",
+              "audio": "book3/U5_S4.mp3",
+              "image": "book3/U5_S4.png",
+              "image_desc": "I think it's maths. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U5_S5",
+              "text": "I like them all.",
+              "audio": "book3/U5_S5.mp3",
+              "image": "book3/U5_S5.png",
+              "image_desc": "I like them all. 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U5_W1",
+              "text": "Chinese",
+              "audio": "book3/U5_W1.mp3",
+              "image": "book3/U5_W1.png",
+              "image_desc": "Chinese 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "语文"
+            },
+            {
+              "id": "U5_W2",
+              "text": "maths",
+              "audio": "book3/U5_W2.mp3",
+              "image": "book3/U5_W2.png",
+              "image_desc": "maths 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "数学"
+            },
+            {
+              "id": "U5_W3",
+              "text": "English",
+              "audio": "book3/U5_W3.mp3",
+              "image": "book3/U5_W3.png",
+              "image_desc": "English 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "英语"
+            },
+            {
+              "id": "U5_W4",
+              "text": "music",
+              "audio": "book3/U5_W4.mp3",
+              "image": "book3/U5_W4.png",
+              "image_desc": "music 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "音乐"
+            },
+            {
+              "id": "U5_W5",
+              "text": "art",
+              "audio": "book3/U5_W5.mp3",
+              "image": "book3/U5_W5.png",
+              "image_desc": "art 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "美术"
+            }
+          ]
+        },
+        {
+          "unit_id": 6,
+          "title": "Unit 6 Days of the Week",
+          "title_en": "Days of the Week",
+          "sentences": [
+            {
+              "id": "U6_S1",
+              "text": "It's Monday today.",
+              "audio": "book3/U6_S1.mp3",
+              "image": "book3/U6_S1.png",
+              "image_desc": "It's Monday today. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U6_S2",
+              "text": "What day is it today?",
+              "audio": "book3/U6_S2.mp3",
+              "image": "book3/U6_S2.png",
+              "image_desc": "What day is it today? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U6_S3",
+              "text": "Sunday!",
+              "audio": "book3/U6_S3.mp3",
+              "image": "book3/U6_S3.png",
+              "image_desc": "Sunday! 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U6_W1",
+              "text": "Sunday",
+              "audio": "book3/U6_W1.mp3",
+              "image": "book3/U6_W1.png",
+              "image_desc": "Sunday 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "星期日"
+            },
+            {
+              "id": "U6_W2",
+              "text": "Monday",
+              "audio": "book3/U6_W2.mp3",
+              "image": "book3/U6_W2.png",
+              "image_desc": "Monday 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "星期一"
+            },
+            {
+              "id": "U6_W3",
+              "text": "Tuesday",
+              "audio": "book3/U6_W3.mp3",
+              "image": "book3/U6_W3.png",
+              "image_desc": "Tuesday 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "星期二"
+            },
+            {
+              "id": "U6_W4",
+              "text": "Wednesday",
+              "audio": "book3/U6_W4.mp3",
+              "image": "book3/U6_W4.png",
+              "image_desc": "Wednesday 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "星期三"
+            },
+            {
+              "id": "U6_W5",
+              "text": "Thursday",
+              "audio": "book3/U6_W5.mp3",
+              "image": "book3/U6_W5.png",
+              "image_desc": "Thursday 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "星期四"
+            },
+            {
+              "id": "U6_W6",
+              "text": "Friday",
+              "audio": "book3/U6_W6.mp3",
+              "image": "book3/U6_W6.png",
+              "image_desc": "Friday 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "星期五"
+            },
+            {
+              "id": "U6_W7",
+              "text": "Saturday",
+              "audio": "book3/U6_W7.mp3",
+              "image": "book3/U6_W7.png",
+              "image_desc": "Saturday 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "星期六"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "book_id": 4,
+      "book_name": "二年级下册",
+      "book_name_en": "Book 4",
+      "grade": 2,
+      "units": [
+        {
+          "unit_id": 1,
+          "title": "Unit 1 Appearance",
+          "title_en": "Appearance",
+          "sentences": [
+            {
+              "id": "U1_S1",
+              "text": "I'm tall.",
+              "audio": "book4/U1_S1.mp3",
+              "image": "book4/U1_S1.png",
+              "image_desc": "I'm tall. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U1_S2",
+              "text": "Is he strong?",
+              "audio": "book4/U1_S2.mp3",
+              "image": "book4/U1_S2.png",
+              "image_desc": "Is he strong? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U1_S3",
+              "text": "Yes, he's strong.",
+              "audio": "book4/U1_S3.mp3",
+              "image": "book4/U1_S3.png",
+              "image_desc": "Yes, he's strong. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U1_S4",
+              "text": "Is she old?",
+              "audio": "book4/U1_S4.mp3",
+              "image": "book4/U1_S4.png",
+              "image_desc": "Is she old? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U1_S5",
+              "text": "No. She's young.",
+              "audio": "book4/U1_S5.mp3",
+              "image": "book4/U1_S5.png",
+              "image_desc": "No. She's young. 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U1_W1",
+              "text": "tall",
+              "audio": "book4/U1_W1.mp3",
+              "image": "book4/U1_W1.png",
+              "image_desc": "tall 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "高的"
+            },
+            {
+              "id": "U1_W2",
+              "text": "short",
+              "audio": "book4/U1_W2.mp3",
+              "image": "book4/U1_W2.png",
+              "image_desc": "short 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "矮的"
+            },
+            {
+              "id": "U1_W3",
+              "text": "young",
+              "audio": "book4/U1_W3.mp3",
+              "image": "book4/U1_W3.png",
+              "image_desc": "young 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "年轻的"
+            },
+            {
+              "id": "U1_W4",
+              "text": "old",
+              "audio": "book4/U1_W4.mp3",
+              "image": "book4/U1_W4.png",
+              "image_desc": "old 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "年老的"
+            },
+            {
+              "id": "U1_W5",
+              "text": "strong",
+              "audio": "book4/U1_W5.mp3",
+              "image": "book4/U1_W5.png",
+              "image_desc": "strong 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "强壮的"
+            }
+          ]
+        },
+        {
+          "unit_id": 2,
+          "title": "Unit 2 Clothes",
+          "title_en": "Clothes",
+          "sentences": [
+            {
+              "id": "U2_S1",
+              "text": "Do you like my new dress?",
+              "audio": "book4/U2_S1.mp3",
+              "image": "book4/U2_S1.png",
+              "image_desc": "Do you like my new dress? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U2_S2",
+              "text": "Yes, I do.",
+              "audio": "book4/U2_S2.mp3",
+              "image": "book4/U2_S2.png",
+              "image_desc": "Yes, I do. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U2_S3",
+              "text": "Do you like her skirt?",
+              "audio": "book4/U2_S3.mp3",
+              "image": "book4/U2_S3.png",
+              "image_desc": "Do you like her skirt? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U2_S4",
+              "text": "No, I don't.",
+              "audio": "book4/U2_S4.mp3",
+              "image": "book4/U2_S4.png",
+              "image_desc": "No, I don't. 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U2_W1",
+              "text": "shirt",
+              "audio": "book4/U2_W1.mp3",
+              "image": "book4/U2_W1.png",
+              "image_desc": "shirt 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "衬衫"
+            },
+            {
+              "id": "U2_W2",
+              "text": "jacket",
+              "audio": "book4/U2_W2.mp3",
+              "image": "book4/U2_W2.png",
+              "image_desc": "jacket 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "夹克"
+            },
+            {
+              "id": "U2_W3",
+              "text": "skirt",
+              "audio": "book4/U2_W3.mp3",
+              "image": "book4/U2_W3.png",
+              "image_desc": "skirt 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "短裙"
+            },
+            {
+              "id": "U2_W4",
+              "text": "sweater",
+              "audio": "book4/U2_W4.mp3",
+              "image": "book4/U2_W4.png",
+              "image_desc": "sweater 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "毛衣"
+            },
+            {
+              "id": "U2_W5",
+              "text": "coat",
+              "audio": "book4/U2_W5.mp3",
+              "image": "book4/U2_W5.png",
+              "image_desc": "coat 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "外套"
+            }
+          ]
+        },
+        {
+          "unit_id": 3,
+          "title": "Unit 3 Weather",
+          "title_en": "Weather",
+          "sentences": [
+            {
+              "id": "U3_S1",
+              "text": "It's sunny.",
+              "audio": "book4/U3_S1.mp3",
+              "image": "book4/U3_S1.png",
+              "image_desc": "It's sunny. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U3_S2",
+              "text": "How's the weather?",
+              "audio": "book4/U3_S2.mp3",
+              "image": "book4/U3_S2.png",
+              "image_desc": "How's the weather? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U3_S3",
+              "text": "It's windy.",
+              "audio": "book4/U3_S3.mp3",
+              "image": "book4/U3_S3.png",
+              "image_desc": "It's windy. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U3_S4",
+              "text": "Is it rainy?",
+              "audio": "book4/U3_S4.mp3",
+              "image": "book4/U3_S4.png",
+              "image_desc": "Is it rainy? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U3_S5",
+              "text": "Yes, it is.",
+              "audio": "book4/U3_S5.mp3",
+              "image": "book4/U3_S5.png",
+              "image_desc": "Yes, it is. 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U3_W1",
+              "text": "sunny",
+              "audio": "book4/U3_W1.mp3",
+              "image": "book4/U3_W1.png",
+              "image_desc": "sunny 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "晴朗的"
+            },
+            {
+              "id": "U3_W2",
+              "text": "cloudy",
+              "audio": "book4/U3_W2.mp3",
+              "image": "book4/U3_W2.png",
+              "image_desc": "cloudy 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "多云的"
+            },
+            {
+              "id": "U3_W3",
+              "text": "windy",
+              "audio": "book4/U3_W3.mp3",
+              "image": "book4/U3_W3.png",
+              "image_desc": "windy 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "有风的"
+            },
+            {
+              "id": "U3_W4",
+              "text": "rainy",
+              "audio": "book4/U3_W4.mp3",
+              "image": "book4/U3_W4.png",
+              "image_desc": "rainy 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "下雨的"
+            },
+            {
+              "id": "U3_W5",
+              "text": "snowy",
+              "audio": "book4/U3_W5.mp3",
+              "image": "book4/U3_W5.png",
+              "image_desc": "snowy 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "下雪的"
+            }
+          ]
+        },
+        {
+          "unit_id": 4,
+          "title": "Unit 4 Transport",
+          "title_en": "Transport",
+          "sentences": [
+            {
+              "id": "U4_S1",
+              "text": "Let's go by plane.",
+              "audio": "book4/U4_S1.mp3",
+              "image": "book4/U4_S1.png",
+              "image_desc": "Let's go by plane. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U4_S2",
+              "text": "How do you go to school?",
+              "audio": "book4/U4_S2.mp3",
+              "image": "book4/U4_S2.png",
+              "image_desc": "How do you go to school? 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U4_S3",
+              "text": "I go to school by bike.",
+              "audio": "book4/U4_S3.mp3",
+              "image": "book4/U4_S3.png",
+              "image_desc": "I go to school by bike. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U4_S4",
+              "text": "I go to school by bus.",
+              "audio": "book4/U4_S4.mp3",
+              "image": "book4/U4_S4.png",
+              "image_desc": "I go to school by bus. 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U4_W1",
+              "text": "taxi",
+              "audio": "book4/U4_W1.mp3",
+              "image": "book4/U4_W1.png",
+              "image_desc": "taxi 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "出租车"
+            },
+            {
+              "id": "U4_W2",
+              "text": "bus",
+              "audio": "book4/U4_W2.mp3",
+              "image": "book4/U4_W2.png",
+              "image_desc": "bus 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "公共汽车"
+            },
+            {
+              "id": "U4_W3",
+              "text": "plane",
+              "audio": "book4/U4_W3.mp3",
+              "image": "book4/U4_W3.png",
+              "image_desc": "plane 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "飞机"
+            },
+            {
+              "id": "U4_W4",
+              "text": "bike",
+              "audio": "book4/U4_W4.mp3",
+              "image": "book4/U4_W4.png",
+              "image_desc": "bike 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "自行车"
+            },
+            {
+              "id": "U4_W5",
+              "text": "ship",
+              "audio": "book4/U4_W5.mp3",
+              "image": "book4/U4_W5.png",
+              "image_desc": "ship 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "轮船"
+            }
+          ]
+        },
+        {
+          "unit_id": 5,
+          "title": "Unit 5 My Home",
+          "title_en": "My Home",
+          "sentences": [
+            {
+              "id": "U5_S1",
+              "text": "This is my bedroom.",
+              "audio": "book4/U5_S1.mp3",
+              "image": "book4/U5_S1.png",
+              "image_desc": "This is my bedroom. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U5_S2",
+              "text": "Welcome to my home!",
+              "audio": "book4/U5_S2.mp3",
+              "image": "book4/U5_S2.png",
+              "image_desc": "Welcome to my home! 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U5_S3",
+              "text": "This is the living room.",
+              "audio": "book4/U5_S3.mp3",
+              "image": "book4/U5_S3.png",
+              "image_desc": "This is the living room. 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U5_S4",
+              "text": "This is the dining room.",
+              "audio": "book4/U5_S4.mp3",
+              "image": "book4/U5_S4.png",
+              "image_desc": "This is the dining room. 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U5_W1",
+              "text": "living room",
+              "audio": "book4/U5_W1.mp3",
+              "image": "book4/U5_W1.png",
+              "image_desc": "living room 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "客厅"
+            },
+            {
+              "id": "U5_W2",
+              "text": "dining room",
+              "audio": "book4/U5_W2.mp3",
+              "image": "book4/U5_W2.png",
+              "image_desc": "dining room 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "餐厅"
+            },
+            {
+              "id": "U5_W3",
+              "text": "bathroom",
+              "audio": "book4/U5_W3.mp3",
+              "image": "book4/U5_W3.png",
+              "image_desc": "bathroom 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "卫生间"
+            },
+            {
+              "id": "U5_W4",
+              "text": "study",
+              "audio": "book4/U5_W4.mp3",
+              "image": "book4/U5_W4.png",
+              "image_desc": "study 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "书房"
+            },
+            {
+              "id": "U5_W5",
+              "text": "kitchen",
+              "audio": "book4/U5_W5.mp3",
+              "image": "book4/U5_W5.png",
+              "image_desc": "kitchen 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "厨房"
+            }
+          ]
+        },
+        {
+          "unit_id": 6,
+          "title": "Unit 6 Happy Time（复习单元，5 条待用户对照纸质教材补充）",
+          "title_en": "Happy Time",
+          "sentences": [
+            {
+              "id": "U6_S1",
+              "text": "Happy time!",
+              "audio": "book4/U6_S1.mp3",
+              "image": "book4/U6_S1.png",
+              "image_desc": "Happy time! 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U6_S2",
+              "text": "Welcome to my home!",
+              "audio": "book4/U6_S2.mp3",
+              "image": "book4/U6_S2.png",
+              "image_desc": "Welcome to my home! 相关卡通主题配图（简约2D、白底、无文字）"
+            },
+            {
+              "id": "U6_S3",
+              "text": "It's sunny.",
+              "audio": "book4/U6_S3.mp3",
+              "image": "book4/U6_S3.png",
+              "image_desc": "It's sunny. 相关卡通主题配图（简约2D、白底、无文字）"
+            }
+          ],
+          "words": [
+            {
+              "id": "U6_W1",
+              "text": "happy",
+              "audio": "book4/U6_W1.mp3",
+              "image": "book4/U6_W1.png",
+              "image_desc": "happy 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "高兴的"
+            },
+            {
+              "id": "U6_W2",
+              "text": "time",
+              "audio": "book4/U6_W2.mp3",
+              "image": "book4/U6_W2.png",
+              "image_desc": "time 相关卡通主题配图（简约2D、白底、无文字）",
+              "meaning": "时间"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

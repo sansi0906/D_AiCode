@@ -1,0 +1,195 @@
+{
+  "app_name": "快乐英语",
+  "grade_support": [1, 2],
+  "textbook": "天津新蕾出版社《快乐英语》一年级 & 二年级",
+  "version": "2.0-demo",
+  "resource_note": "audio/image 为 APP 资源相对路径；图片文件名与音频同前缀（U1_S1.png 对应 U1_S1.mp3）；音频规范 MP3/44100Hz/单声道/128kbps；按 book_id 分目录，books[].units[].sentences[].id 仅在同一 book_id 内唯一。",
+  "books": [
+    {
+      "book_id": 1,
+      "book_name": "一年级上册",
+      "book_name_en": "Book 1",
+      "grade": 1,
+      "units": "同一期现有内容（6单元，详见一期 content.json），本示例省略"
+    },
+    {
+      "book_id": 2,
+      "book_name": "一年级下册",
+      "book_name_en": "Book 2",
+      "grade": 1,
+      "units": "同一期现有内容（6单元，详见一期 content.json），本示例省略"
+    },
+    {
+      "book_id": 3,
+      "book_name": "二年级上册",
+      "book_name_en": "Book 3",
+      "grade": 2,
+      "units": [
+        {
+          "unit_id": 1,
+          "title": "Unit 1 Toys",
+          "title_en": "Toys",
+          "sentences": [
+            {
+              "id": "U1_S1",
+              "text": "Look at my robot.",
+              "audio": "book3/U1_S1.mp3",
+              "image": "book3/U1_S1.png",
+              "image_desc": "小朋友指着一台玩具机器人，卡通风格"
+            },
+            {
+              "id": "U1_S2",
+              "text": "Look at my toy truck. Wow! Good!",
+              "audio": "book3/U1_S2.mp3",
+              "image": "book3/U1_S2.png",
+              "image_desc": "小朋友惊喜地指着一辆玩具卡车，表情兴奋"
+            },
+            {
+              "id": "U1_S3",
+              "text": "Let's play together.",
+              "audio": "book3/U1_S3.mp3",
+              "image": "book3/U1_S3.png",
+              "image_desc": "两个小朋友笑着一起玩耍"
+            },
+            {
+              "id": "U1_S4",
+              "text": "I have a toy truck. Beep, beep...",
+              "audio": "book3/U1_S4.mp3",
+              "image": "book3/U1_S4.png",
+              "image_desc": "小朋友推着玩具卡车，旁边画滴滴喇叭音效符号"
+            },
+            {
+              "id": "U1_S5",
+              "text": "Do you have a robot?",
+              "audio": "book3/U1_S5.mp3",
+              "image": "book3/U1_S5.png",
+              "image_desc": "小朋友举手询问对方是否有机器人"
+            }
+          ],
+          "words": [
+            {
+              "id": "U1_W1",
+              "text": "toy truck",
+              "audio": "book3/U1_W1.mp3",
+              "image": "book3/U1_W1.png",
+              "image_desc": "玩具小卡车卡通图"
+            },
+            {
+              "id": "U1_W2",
+              "text": "toy jeep",
+              "audio": "book3/U1_W2.mp3",
+              "image": "book3/U1_W2.png",
+              "image_desc": "玩具吉普车卡通图"
+            },
+            {
+              "id": "U1_W3",
+              "text": "toy digger",
+              "audio": "book3/U1_W3.mp3",
+              "image": "book3/U1_W3.png",
+              "image_desc": "玩具挖掘机卡通图"
+            },
+            {
+              "id": "U1_W4",
+              "text": "robot",
+              "audio": "book3/U1_W4.mp3",
+              "image": "book3/U1_W4.png",
+              "image_desc": "玩具机器人卡通图"
+            },
+            {
+              "id": "U1_W5",
+              "text": "building blocks",
+              "audio": "book3/U1_W5.mp3",
+              "image": "book3/U1_W5.png",
+              "image_desc": "彩色积木块卡通图"
+            }
+          ]
+        },
+        {
+          "unit_id": 2,
+          "title": "Unit 2 Shapes",
+          "title_en": "Shapes",
+          "sentences": [],
+          "words": []
+        },
+        {
+          "unit_id": 3,
+          "title": "Unit 3 My School",
+          "title_en": "My School",
+          "sentences": [],
+          "words": []
+        },
+        {
+          "unit_id": 4,
+          "title": "Unit 4 In the Classroom",
+          "title_en": "In the Classroom",
+          "sentences": [],
+          "words": []
+        },
+        {
+          "unit_id": 5,
+          "title": "Unit 5 My Favourite Subject",
+          "title_en": "My Favourite Subject",
+          "sentences": [],
+          "words": []
+        },
+        {
+          "unit_id": 6,
+          "title": "Unit 6 Days of the Week",
+          "title_en": "Days of the Week",
+          "sentences": [],
+          "words": []
+        }
+      ]
+    },
+    {
+      "book_id": 4,
+      "book_name": "二年级下册",
+      "book_name_en": "Book 4",
+      "grade": 2,
+      "units": [
+        {
+          "unit_id": 1,
+          "title": "Unit 1 Appearance",
+          "title_en": "Appearance",
+          "sentences": [],
+          "words": []
+        },
+        {
+          "unit_id": 2,
+          "title": "Unit 2 Clothes",
+          "title_en": "Clothes",
+          "sentences": [],
+          "words": []
+        },
+        {
+          "unit_id": 3,
+          "title": "Unit 3 Weather",
+          "title_en": "Weather",
+          "sentences": [],
+          "words": []
+        },
+        {
+          "unit_id": 4,
+          "title": "Unit 4 Transport",
+          "title_en": "Transport",
+          "sentences": [],
+          "words": []
+        },
+        {
+          "unit_id": 5,
+          "title": "Unit 5 My Home",
+          "title_en": "My Home",
+          "sentences": [],
+          "words": []
+        },
+        {
+          "unit_id": 6,
+          "title": "Unit 6 Happy Time（复习单元，5 条待用户对照纸质教材补充）",
+          "title_en": "Happy Time",
+          "sentences": [],
+          "words": []
+        }
+      ]
+    }
+  ]
+}

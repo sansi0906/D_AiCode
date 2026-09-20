@@ -1,0 +1,719 @@
+{
+  "app_name": "快乐英语",
+  "grade": 1,
+  "textbook": "天津新蕾出版社《快乐英语》一年级",
+  "version": "1.0",
+  "resource_note": "audio/image 为 APP 资源相对路径；图片文件名与音频同前缀（U1_S1.png 对应 U1_S1.mp3）；音频规范 MP3/44100Hz/单声道/128kbps",
+  "books": [
+    {
+      "book_id": 1,
+      "book_name": "上册",
+      "book_name_en": "Book 1",
+      "units": [
+        {
+          "unit_id": 1,
+          "title": "Unit 1 Hello",
+          "title_en": "Hello",
+          "sentences": [
+            {
+              "id": "U1_S1",
+              "text": "Hello.",
+              "audio": "U1_S1.mp3",
+              "image": "U1_S1.png",
+              "image_desc": "小朋友挥手卡通图"
+            },
+            {
+              "id": "U1_S2",
+              "text": "Hi!",
+              "audio": "U1_S2.mp3",
+              "image": "U1_S2.png",
+              "image_desc": "笑脸卡通小人"
+            },
+            {
+              "id": "U1_S3",
+              "text": "Goodbye.",
+              "audio": "U1_S3.mp3",
+              "image": "U1_S3.png",
+              "image_desc": "挥手再见"
+            }
+          ],
+          "words": [
+            {
+              "id": "U1_W1",
+              "text": "hello",
+              "audio": "U1_W1.mp3",
+              "image": "U1_W1.png",
+              "image_desc": "挥手小朋友"
+            },
+            {
+              "id": "U1_W2",
+              "text": "hi",
+              "audio": "U1_W2.mp3",
+              "image": "U1_W2.png",
+              "image_desc": "笑脸"
+            },
+            {
+              "id": "U1_W3",
+              "text": "goodbye",
+              "audio": "U1_W3.mp3",
+              "image": "U1_W3.png",
+              "image_desc": "挥手告别"
+            }
+          ]
+        },
+        {
+          "unit_id": 2,
+          "title": "Unit 2 I’m Tom",
+          "title_en": "I’m Tom",
+          "sentences": [
+            {
+              "id": "U2_S1",
+              "text": "I’m Tom.",
+              "audio": "U2_S1.mp3",
+              "image": "U2_S1.png",
+              "image_desc": "小男孩Tom卡通形象"
+            },
+            {
+              "id": "U2_S2",
+              "text": "I’m Amy.",
+              "audio": "U2_S2.mp3",
+              "image": "U2_S2.png",
+              "image_desc": "小女孩Amy卡通形象"
+            },
+            {
+              "id": "U2_S3",
+              "text": "Nice to see you.",
+              "audio": "U2_S3.mp3",
+              "image": "U2_S3.png",
+              "image_desc": "两个小朋友见面微笑"
+            }
+          ],
+          "words": [
+            {
+              "id": "U2_W1",
+              "text": "I",
+              "audio": "U2_W1.mp3",
+              "image": "U2_W1.png",
+              "image_desc": "小人简笔画"
+            },
+            {
+              "id": "U2_W2",
+              "text": "Tom",
+              "audio": "U2_W2.mp3",
+              "image": "U2_W2.png",
+              "image_desc": "男孩卡通"
+            },
+            {
+              "id": "U2_W3",
+              "text": "Amy",
+              "audio": "U2_W3.mp3",
+              "image": "U2_W3.png",
+              "image_desc": "女孩卡通"
+            }
+          ]
+        },
+        {
+          "unit_id": 3,
+          "title": "Unit 3 How are you?",
+          "title_en": "How are you?",
+          "sentences": [
+            {
+              "id": "U3_S1",
+              "text": "How are you?",
+              "audio": "U3_S1.mp3",
+              "image": "U3_S1.png",
+              "image_desc": "小朋友互相问候"
+            },
+            {
+              "id": "U3_S2",
+              "text": "I’m fine.",
+              "audio": "U3_S2.mp3",
+              "image": "U3_S2.png",
+              "image_desc": "开心小朋友"
+            },
+            {
+              "id": "U3_S3",
+              "text": "Thank you.",
+              "audio": "U3_S3.mp3",
+              "image": "U3_S3.png",
+              "image_desc": "双手比心"
+            }
+          ],
+          "words": [
+            {
+              "id": "U3_W1",
+              "text": "how",
+              "audio": "U3_W1.mp3",
+              "image": "U3_W1.png",
+              "image_desc": "问号卡通图标"
+            },
+            {
+              "id": "U3_W2",
+              "text": "fine",
+              "audio": "U3_W2.mp3",
+              "image": "U3_W2.png",
+              "image_desc": "微笑小朋友"
+            },
+            {
+              "id": "U3_W3",
+              "text": "thank you",
+              "audio": "U3_W3.mp3",
+              "image": "U3_W3.png",
+              "image_desc": "爱心图标"
+            }
+          ]
+        },
+        {
+          "unit_id": 4,
+          "title": "Unit 4 Book and pencil",
+          "title_en": "Book and pencil",
+          "sentences": [
+            {
+              "id": "U4_S1",
+              "text": "This is a book.",
+              "audio": "U4_S1.mp3",
+              "image": "U4_S1.png",
+              "image_desc": "卡通书本"
+            },
+            {
+              "id": "U4_S2",
+              "text": "This is a pencil.",
+              "audio": "U4_S2.mp3",
+              "image": "U4_S2.png",
+              "image_desc": "卡通铅笔"
+            },
+            {
+              "id": "U4_S3",
+              "text": "Show me your pencil.",
+              "audio": "U4_S3.mp3",
+              "image": "U4_S3.png",
+              "image_desc": "小朋友举铅笔"
+            }
+          ],
+          "words": [
+            {
+              "id": "U4_W1",
+              "text": "book",
+              "audio": "U4_W1.mp3",
+              "image": "U4_W1.png",
+              "image_desc": "卡通书"
+            },
+            {
+              "id": "U4_W2",
+              "text": "pencil",
+              "audio": "U4_W2.mp3",
+              "image": "U4_W2.png",
+              "image_desc": "卡通铅笔"
+            },
+            {
+              "id": "U4_W3",
+              "text": "show",
+              "audio": "U4_W3.mp3",
+              "image": "U4_W3.png",
+              "image_desc": "手展示动作图"
+            }
+          ]
+        },
+        {
+          "unit_id": 5,
+          "title": "Unit 5 Bag",
+          "title_en": "Bag",
+          "sentences": [
+            {
+              "id": "U5_S1",
+              "text": "This is a bag.",
+              "audio": "U5_S1.mp3",
+              "image": "U5_S1.png",
+              "image_desc": "卡通书包"
+            },
+            {
+              "id": "U5_S2",
+              "text": "Open your bag.",
+              "audio": "U5_S2.mp3",
+              "image": "U5_S2.png",
+              "image_desc": "打开书包动作"
+            },
+            {
+              "id": "U5_S3",
+              "text": "Close your bag.",
+              "audio": "U5_S3.mp3",
+              "image": "U5_S3.png",
+              "image_desc": "合上书包动作"
+            }
+          ],
+          "words": [
+            {
+              "id": "U5_W1",
+              "text": "bag",
+              "audio": "U5_W1.mp3",
+              "image": "U5_W1.png",
+              "image_desc": "卡通书包"
+            },
+            {
+              "id": "U5_W2",
+              "text": "open",
+              "audio": "U5_W2.mp3",
+              "image": "U5_W2.png",
+              "image_desc": "打开图标"
+            },
+            {
+              "id": "U5_W3",
+              "text": "close",
+              "audio": "U5_W3.mp3",
+              "image": "U5_W3.png",
+              "image_desc": "关闭图标"
+            }
+          ]
+        },
+        {
+          "unit_id": 6,
+          "title": "Unit 6 Numbers 1-5",
+          "title_en": "Numbers 1-5",
+          "sentences": [
+            {
+              "id": "U6_S1",
+              "text": "One.",
+              "audio": "U6_S1.mp3",
+              "image": "U6_S1.png",
+              "image_desc": "数字1卡通"
+            },
+            {
+              "id": "U6_S2",
+              "text": "Two.",
+              "audio": "U6_S2.mp3",
+              "image": "U6_S2.png",
+              "image_desc": "数字2卡通"
+            },
+            {
+              "id": "U6_S3",
+              "text": "Three.",
+              "audio": "U6_S3.mp3",
+              "image": "U6_S3.png",
+              "image_desc": "数字3卡通"
+            },
+            {
+              "id": "U6_S4",
+              "text": "Four.",
+              "audio": "U6_S4.mp3",
+              "image": "U6_S4.png",
+              "image_desc": "数字4卡通"
+            },
+            {
+              "id": "U6_S5",
+              "text": "Five.",
+              "audio": "U6_S5.mp3",
+              "image": "U6_S5.png",
+              "image_desc": "数字5卡通"
+            }
+          ],
+          "words": [
+            {
+              "id": "U6_W1",
+              "text": "one",
+              "audio": "U6_W1.mp3",
+              "image": "U6_W1.png",
+              "image_desc": "数字1"
+            },
+            {
+              "id": "U6_W2",
+              "text": "two",
+              "audio": "U6_W2.mp3",
+              "image": "U6_W2.png",
+              "image_desc": "数字2"
+            },
+            {
+              "id": "U6_W3",
+              "text": "three",
+              "audio": "U6_W3.mp3",
+              "image": "U6_W3.png",
+              "image_desc": "数字3"
+            },
+            {
+              "id": "U6_W4",
+              "text": "four",
+              "audio": "U6_W4.mp3",
+              "image": "U6_W4.png",
+              "image_desc": "数字4"
+            },
+            {
+              "id": "U6_W5",
+              "text": "five",
+              "audio": "U6_W5.mp3",
+              "image": "U6_W5.png",
+              "image_desc": "数字5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "book_id": 2,
+      "book_name": "下册",
+      "book_name_en": "Book 2",
+      "units": [
+        {
+          "unit_id": 1,
+          "title": "Unit 1 Colour",
+          "title_en": "Colour",
+          "sentences": [
+            {
+              "id": "U1_S1",
+              "text": "Red.",
+              "audio": "U1_S1.mp3",
+              "image": "U1_S1.png",
+              "image_desc": "红色苹果卡通"
+            },
+            {
+              "id": "U1_S2",
+              "text": "Blue.",
+              "audio": "U1_S2.mp3",
+              "image": "U1_S2.png",
+              "image_desc": "蓝色天空卡通"
+            },
+            {
+              "id": "U1_S3",
+              "text": "Yellow.",
+              "audio": "U1_S3.mp3",
+              "image": "U1_S3.png",
+              "image_desc": "黄色香蕉卡通"
+            },
+            {
+              "id": "U1_S4",
+              "text": "Green.",
+              "audio": "U1_S4.mp3",
+              "image": "U1_S4.png",
+              "image_desc": "绿色树叶卡通"
+            }
+          ],
+          "words": [
+            {
+              "id": "U1_W1",
+              "text": "red",
+              "audio": "U1_W1.mp3",
+              "image": "U1_W1.png",
+              "image_desc": "红苹果"
+            },
+            {
+              "id": "U1_W2",
+              "text": "blue",
+              "audio": "U1_W2.mp3",
+              "image": "U1_W2.png",
+              "image_desc": "蓝天"
+            },
+            {
+              "id": "U1_W3",
+              "text": "yellow",
+              "audio": "U1_W3.mp3",
+              "image": "U1_W3.png",
+              "image_desc": "香蕉"
+            },
+            {
+              "id": "U1_W4",
+              "text": "green",
+              "audio": "U1_W4.mp3",
+              "image": "U1_W4.png",
+              "image_desc": "绿叶"
+            }
+          ]
+        },
+        {
+          "unit_id": 2,
+          "title": "Unit 2 Face",
+          "title_en": "Face",
+          "sentences": [
+            {
+              "id": "U2_S1",
+              "text": "Eye.",
+              "audio": "U2_S1.mp3",
+              "image": "U2_S1.png",
+              "image_desc": "卡通大眼睛"
+            },
+            {
+              "id": "U2_S2",
+              "text": "Ear.",
+              "audio": "U2_S2.mp3",
+              "image": "U2_S2.png",
+              "image_desc": "卡通耳朵"
+            },
+            {
+              "id": "U2_S3",
+              "text": "Nose.",
+              "audio": "U2_S3.mp3",
+              "image": "U2_S3.png",
+              "image_desc": "卡通鼻子"
+            },
+            {
+              "id": "U2_S4",
+              "text": "Mouth.",
+              "audio": "U2_S4.mp3",
+              "image": "U2_S4.png",
+              "image_desc": "卡通嘴巴"
+            }
+          ],
+          "words": [
+            {
+              "id": "U2_W1",
+              "text": "eye",
+              "audio": "U2_W1.mp3",
+              "image": "U2_W1.png",
+              "image_desc": "眼睛"
+            },
+            {
+              "id": "U2_W2",
+              "text": "ear",
+              "audio": "U2_W2.mp3",
+              "image": "U2_W2.png",
+              "image_desc": "耳朵"
+            },
+            {
+              "id": "U2_W3",
+              "text": "nose",
+              "audio": "U2_W3.mp3",
+              "image": "U2_W3.png",
+              "image_desc": "鼻子"
+            },
+            {
+              "id": "U2_W4",
+              "text": "mouth",
+              "audio": "U2_W4.mp3",
+              "image": "U2_W4.png",
+              "image_desc": "嘴巴"
+            }
+          ]
+        },
+        {
+          "unit_id": 3,
+          "title": "Unit 3 Animals",
+          "title_en": "Animals",
+          "sentences": [
+            {
+              "id": "U3_S1",
+              "text": "It’s a cat.",
+              "audio": "U3_S1.mp3",
+              "image": "U3_S1.png",
+              "image_desc": "卡通小猫"
+            },
+            {
+              "id": "U3_S2",
+              "text": "It’s a dog.",
+              "audio": "U3_S2.mp3",
+              "image": "U3_S2.png",
+              "image_desc": "卡通小狗"
+            },
+            {
+              "id": "U3_S3",
+              "text": "It’s a bird.",
+              "audio": "U3_S3.mp3",
+              "image": "U3_S3.png",
+              "image_desc": "卡通小鸟"
+            }
+          ],
+          "words": [
+            {
+              "id": "U3_W1",
+              "text": "cat",
+              "audio": "U3_W1.mp3",
+              "image": "U3_W1.png",
+              "image_desc": "小猫"
+            },
+            {
+              "id": "U3_W2",
+              "text": "dog",
+              "audio": "U3_W2.mp3",
+              "image": "U3_W2.png",
+              "image_desc": "小狗"
+            },
+            {
+              "id": "U3_W3",
+              "text": "bird",
+              "audio": "U3_W3.mp3",
+              "image": "U3_W3.png",
+              "image_desc": "小鸟"
+            }
+          ]
+        },
+        {
+          "unit_id": 4,
+          "title": "Unit 4 Fruit",
+          "title_en": "Fruit",
+          "sentences": [
+            {
+              "id": "U4_S1",
+              "text": "Apple.",
+              "audio": "U4_S1.mp3",
+              "image": "U4_S1.png",
+              "image_desc": "苹果卡通"
+            },
+            {
+              "id": "U4_S2",
+              "text": "Banana.",
+              "audio": "U4_S2.mp3",
+              "image": "U4_S2.png",
+              "image_desc": "香蕉卡通"
+            },
+            {
+              "id": "U4_S3",
+              "text": "Orange.",
+              "audio": "U4_S3.mp3",
+              "image": "U4_S3.png",
+              "image_desc": "橙子卡通"
+            }
+          ],
+          "words": [
+            {
+              "id": "U4_W1",
+              "text": "apple",
+              "audio": "U4_W1.mp3",
+              "image": "U4_W1.png",
+              "image_desc": "苹果"
+            },
+            {
+              "id": "U4_W2",
+              "text": "banana",
+              "audio": "U4_W2.mp3",
+              "image": "U4_W2.png",
+              "image_desc": "香蕉"
+            },
+            {
+              "id": "U4_W3",
+              "text": "orange",
+              "audio": "U4_W3.mp3",
+              "image": "U4_W3.png",
+              "image_desc": "橙子"
+            }
+          ]
+        },
+        {
+          "unit_id": 5,
+          "title": "Unit 5 Body",
+          "title_en": "Body",
+          "sentences": [
+            {
+              "id": "U5_S1",
+              "text": "Hand.",
+              "audio": "U5_S1.mp3",
+              "image": "U5_S1.png",
+              "image_desc": "卡通小手"
+            },
+            {
+              "id": "U5_S2",
+              "text": "Foot.",
+              "audio": "U5_S2.mp3",
+              "image": "U5_S2.png",
+              "image_desc": "卡通小脚"
+            },
+            {
+              "id": "U5_S3",
+              "text": "Arm.",
+              "audio": "U5_S3.mp3",
+              "image": "U5_S3.png",
+              "image_desc": "卡通胳膊"
+            }
+          ],
+          "words": [
+            {
+              "id": "U5_W1",
+              "text": "hand",
+              "audio": "U5_W1.mp3",
+              "image": "U5_W1.png",
+              "image_desc": "手"
+            },
+            {
+              "id": "U5_W2",
+              "text": "foot",
+              "audio": "U5_W2.mp3",
+              "image": "U5_W2.png",
+              "image_desc": "脚"
+            },
+            {
+              "id": "U5_W3",
+              "text": "arm",
+              "audio": "U5_W3.mp3",
+              "image": "U5_W3.png",
+              "image_desc": "胳膊"
+            }
+          ]
+        },
+        {
+          "unit_id": 6,
+          "title": "Unit 6 Numbers 6-10",
+          "title_en": "Numbers 6-10",
+          "sentences": [
+            {
+              "id": "U6_S1",
+              "text": "Six.",
+              "audio": "U6_S1.mp3",
+              "image": "U6_S1.png",
+              "image_desc": "数字6卡通"
+            },
+            {
+              "id": "U6_S2",
+              "text": "Seven.",
+              "audio": "U6_S2.mp3",
+              "image": "U6_S2.png",
+              "image_desc": "数字7卡通"
+            },
+            {
+              "id": "U6_S3",
+              "text": "Eight.",
+              "audio": "U6_S3.mp3",
+              "image": "U6_S3.png",
+              "image_desc": "数字8卡通"
+            },
+            {
+              "id": "U6_S4",
+              "text": "Nine.",
+              "audio": "U6_S4.mp3",
+              "image": "U6_S4.png",
+              "image_desc": "数字9卡通"
+            },
+            {
+              "id": "U6_S5",
+              "text": "Ten.",
+              "audio": "U6_S5.mp3",
+              "image": "U6_S5.png",
+              "image_desc": "数字10卡通"
+            }
+          ],
+          "words": [
+            {
+              "id": "U6_W1",
+              "text": "six",
+              "audio": "U6_W1.mp3",
+              "image": "U6_W1.png",
+              "image_desc": "数字6"
+            },
+            {
+              "id": "U6_W2",
+              "text": "seven",
+              "audio": "U6_W2.mp3",
+              "image": "U6_W2.png",
+              "image_desc": "数字7"
+            },
+            {
+              "id": "U6_W3",
+              "text": "eight",
+              "audio": "U6_W3.mp3",
+              "image": "U6_W3.png",
+              "image_desc": "数字8"
+            },
+            {
+              "id": "U6_W4",
+              "text": "nine",
+              "audio": "U6_W4.mp3",
+              "image": "U6_W4.png",
+              "image_desc": "数字9"
+            },
+            {
+              "id": "U6_W5",
+              "text": "ten",
+              "audio": "U6_W5.mp3",
+              "image": "U6_W5.png",
+              "image_desc": "数字10"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

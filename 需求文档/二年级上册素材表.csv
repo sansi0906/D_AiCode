@@ -1,0 +1,61 @@
+﻿id,type,text,unit,source_url,status
+U1_S1,sentence,Look at my robot.,Unit1,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan01.html | https://www.doc88.com/p-14461330771785.html,verified
+U1_S2,sentence,Look at my toy truck. Wow! Good!,Unit1,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan01.html | https://www.doc88.com/p-14461330771785.html,verified
+U1_S3,sentence,Let's play together.,Unit1,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan01.html | https://m.doc88.com/p-9075708413920.html,verified
+U1_S4,sentence,"I have a toy truck. Beep, beep...",Unit1,https://m.doc88.com/p-9075708413920.html | https://max.book118.com/html/2025/0509/6105043055011123.shtm,verified
+U1_S5,sentence,Do you have a robot?,Unit1,https://m.doc88.com/p-9075708413920.html | https://max.book118.com/html/2025/0924/7115011044010162.shtm,verified
+U1_W1,word,toy truck,Unit1,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_words1.html,verified
+U1_W2,word,toy jeep,Unit1,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.doc88.com/p-14461330771785.html,verified
+U1_W3,word,toy digger,Unit1,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.doc88.com/p-14461330771785.html,verified
+U1_W4,word,robot,Unit1,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.doc88.com/p-14461330771785.html,verified
+U1_W5,word,building blocks,Unit1,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.doc88.com/p-14461330771785.html,verified
+U2_S1,sentence,It's a square.,Unit2,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan02.html | https://www.docin.com/touch_new/preview_new.do?id=1521361494,verified
+U2_S2,sentence,What shape is it?,Unit2,https://www.docin.com/touch_new/preview_new.do?id=1521361494 | https://m.zxxk.com/soft/53993291.html,verified
+U2_S3,sentence,It's a diamond.,Unit2,https://www.docin.com/touch_new/preview_new.do?id=1521361494 | https://m.zxxk.com/soft/53993291.html,verified
+U2_S4,sentence,It's a triangle.,Unit2,https://www.docin.com/touch_new/preview_new.do?id=1521361494 | https://m.zxxk.com/soft/53993291.html,verified
+U2_S5,sentence,I can draw a triangle.,Unit2,https://www.docin.com/touch_new/preview_new.do?id=1521361494,verified
+U2_W1,word,square,Unit2,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.docin.com/touch_new/preview_new.do?id=1521361494,verified
+U2_W2,word,triangle,Unit2,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.docin.com/touch_new/preview_new.do?id=1521361494,verified
+U2_W3,word,rectangle,Unit2,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.docin.com/touch_new/preview_new.do?id=1521361494,verified
+U2_W4,word,heart,Unit2,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.docin.com/touch_new/preview_new.do?id=1521361494,verified
+U2_W5,word,diamond,Unit2,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.docin.com/touch_new/preview_new.do?id=1521361494,verified
+U3_S1,sentence,This is our school.,Unit3,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan03.html | https://m.zxxk.com/soft/22883572.html,verified
+U3_S2,sentence,Welcome to our school!,Unit3,https://m.zxxk.com/soft/22883572.html | https://mip.21cnjy.com/P/1019467.html,verified
+U3_S3,sentence,This is our classroom.,Unit3,https://m.zxxk.com/soft/22883572.html | https://www.iesdouyin.com/share/video/7681169140950023753,verified
+U3_S4,sentence,This is our gym.,Unit3,https://m.zxxk.com/soft/22883572.html | https://mip.21cnjy.com/P/1019467.html,verified
+U3_S5,sentence,"This way, please.",Unit3,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan03.html,verified
+U3_W1,word,school,Unit3,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen3.html,verified
+U3_W2,word,classroom,Unit3,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen3.html,verified
+U3_W3,word,library,Unit3,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen3.html,verified
+U3_W4,word,music room,Unit3,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen3.html,verified
+U3_W5,word,gym,Unit3,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen3.html,verified
+U4_S1,sentence,"Come to the blackboard, please.",Unit4,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan04.html | https://www.iesdouyin.com/share/video/7680806938636116979,verified
+U4_S2,sentence,OK. We are coming.,Unit4,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan04.html | https://m.zxxk.com/soft/54300526.html,verified
+U4_S3,sentence,"Come to the desk, please.",Unit4,https://m.zxxk.com/soft/54300526.html | https://www.iesdouyin.com/share/video/7680806938636116979,verified
+U4_S4,sentence,OK. I'm coming.,Unit4,https://m.zxxk.com/soft/54300526.html | https://www.iesdouyin.com/share/video/7680806938636116979,verified
+U4_S5,sentence,What's this?,Unit4,https://m.zxxk.com/soft/54300657.html | https://m.21cnjy.com/H/350144.shtml,verified
+U4_W1,word,blackboard,Unit4,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_words4.html,verified
+U4_W2,word,door,Unit4,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_words4.html,verified
+U4_W3,word,window,Unit4,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_words4.html,verified
+U4_W4,word,desk,Unit4,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_words4.html,verified
+U4_W5,word,chair,Unit4,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_words4.html,verified
+U5_S1,sentence,English is my favourite subject.,Unit5,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan05.html | https://www.iesdouyin.com/share/video/7112721257732328744,verified
+U5_S2,sentence,What's your favourite subject?,Unit5,https://m.zxxk.com/soft/54454377.html | https://www.iesdouyin.com/share/video/7682053784055697006,verified
+U5_S3,sentence,"It's English, of course.",Unit5,https://m.zxxk.com/soft/54454377.html | https://www.iesdouyin.com/share/video/7112721257732328744,verified
+U5_S4,sentence,I think it's maths.,Unit5,https://m.zxxk.com/soft/54454377.html | https://www.iesdouyin.com/share/video/7682053784055697006,verified
+U5_S5,sentence,I like them all.,Unit5,https://www.iesdouyin.com/share/video/7682053784055697006 | https://m.zxxk.com/soft/54454377.html,verified
+U5_W1,word,Chinese,Unit5,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.iesdouyin.com/share/video/7112721257732328744,verified
+U5_W2,word,maths,Unit5,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.iesdouyin.com/share/video/7112721257732328744,verified
+U5_W3,word,English,Unit5,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.iesdouyin.com/share/video/7112721257732328744,verified
+U5_W4,word,music,Unit5,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.iesdouyin.com/share/video/7112721257732328744,verified
+U5_W5,word,art,Unit5,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://www.iesdouyin.com/share/video/7112721257732328744,verified
+U6_S1,sentence,It's Monday today.,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan06.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen6.html,verified
+U6_S2,sentence,What day is it today?,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan06.html | https://www.docin.com/touch_new/preview_new.do?id=4117268189,verified
+U6_S3,sentence,Sunday!,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danyuan06.html,verified
+U6_W1,word,Sunday,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen6.html,verified
+U6_W2,word,Monday,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen6.html,verified
+U6_W3,word,Tuesday,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen6.html,verified
+U6_W4,word,Wednesday,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen6.html,verified
+U6_W5,word,Thursday,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen6.html,verified
+U6_W6,word,Friday,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen6.html,verified
+U6_W7,word,Saturday,Unit6,https://yyld.51jiaoxi.com/ershang/xlbs_danci.html | https://yy.suyang123.com/xiaoxue/ernianji/xlbs_shangce_listen6.html,verified
