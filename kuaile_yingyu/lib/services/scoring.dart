@@ -146,8 +146,8 @@ int starsFromScore(double score) {
 
 /// APP 内展示用简化三档（需求文档：不打击孩子）
 int starsForDisplay(double score) {
-  if (score >= 75) return 3;
-  if (score >= 60) return 2;
+  if (score >= 85) return 3;
+  if (score >= 65) return 2;
   return 1;
 }
 

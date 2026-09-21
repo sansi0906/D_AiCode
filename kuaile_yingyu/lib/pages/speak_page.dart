@@ -208,7 +208,7 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
         await ProgressDb.saveResult(widget.unit.progressKey(widget.item), res.star);
       }
       // V1.2.4 满分奖励：得 100 分弹出 1 道知识卡（题库 916 道不重复）
-      if (res != null && res.error == null && res.score >= 100) {
+      if (res != null && res.error == null && res.score >= 85) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (mounted) _showRiddleReward();
         });
