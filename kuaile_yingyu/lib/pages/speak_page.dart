@@ -236,7 +236,9 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
         _elapsed = Duration.zero;
       });
       _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-        if (mounted) setState(() => _elapsed += const Duration(seconds: 1));
+        if (!mounted) return;
+        setState(() => _elapsed += const Duration(seconds: 1));
+        if (_elapsed.inSeconds >= 10) _toggleRecord();
       });
     }
   }

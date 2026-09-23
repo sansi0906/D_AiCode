@@ -81,9 +81,37 @@ class MainActivity : FlutterActivity() {
         }
         // 索引随录音一并更新
         File(downloadDir(), "index.json").writeText(indexJson)
+        // 清理同 item 的旧录音：只保留刚写的这条最高分
+        cleanupOldRecordings(fileName)
         true
     } catch (e: Exception) {
         false
+    }
+
+    /// 删除同 child_book_item 的旧录音，只保留最高分那条
+    /// 文件名: {child}_{book}_{item}_{score}_{date}_{time}.wav
+    /// child 可能含下划线，从右往左数：最后3段是 time/date/score，前面是 child_book_item
+    private fun cleanupOldRecordings(newFileName: String) {
+        try {
+            val name = newFileName.removeSuffix(".wav")
+            val parts = name.split("_")
+            if (parts.size < 6) return
+            val newScore = parts[parts.size - 3].toIntOrNull() ?: return
+            val prefix = parts.take(parts.size - 3).joinToString("_") + "_"
+            val dir = downloadDir()
+            dir.listFiles()?.forEach { f ->
+                if (f.isFile && f.name.endsWith(".wav")
+                    && f.name.startsWith(prefix)
+                    && f.name != newFileName
+                ) {
+                    val oldParts = f.name.removeSuffix(".wav").split("_")
+                    val oldScore = oldParts.getOrNull(oldParts.size - 3)?.toIntOrNull()
+                    if (oldScore != null && oldScore < newScore) {
+                        f.delete()
+                    }
+                }
+            }
+        } catch (_: Exception) {}
     }
 
     private fun readIndex(): String? {
