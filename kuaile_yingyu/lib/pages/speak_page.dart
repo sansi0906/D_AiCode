@@ -171,27 +171,28 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
   Duration _elapsed = Duration.zero;
   Timer? _timer;
 
-  /// 满分奖励：每次满分弹出 1 道知识卡（脑筋急转弯/历史/地理/生物/成语典故/
-  /// 诗词/生活常识/冷知识，题库 916 道，点"看答案"显示答案，已看过自动去重）
+  /// 满分奖励：每个跟读项绑定固定一道知识卡，第一次 ≥85 分弹出，
+  /// 之后再满分不再重复弹（已读过就跳过）
   Future<void> _showRiddleReward() async {
-    final riddles = await pickRiddles(1);
-    for (var i = 0; i < riddles.length; i++) {
-      if (!mounted) return;
-      await ProgressDb.markRiddleSeen(riddles[i]['id']!);
-      if (!mounted) return;
-      await showDialog<void>(
-        context: context,
-        barrierDismissible: false,
-        builder: (_) => _RiddleDialog(
-          index: i + 1,
-          total: riddles.length,
-          category: riddles[i]['category']!,
-          question: riddles[i]['q']!,
-          answer: riddles[i]['a']!,
-          isLast: i == riddles.length - 1,
-        ),
-      );
-    }
+    final riddle = riddleForItem(widget.item.id);
+    if (riddle == null) return;
+    final seen = await ProgressDb.getSeenRiddleIds();
+    if (seen.contains(riddle['id'])) return; // 已读过，不再弹
+    if (!mounted) return;
+    await ProgressDb.markRiddleSeen(riddle['id']!);
+    if (!mounted) return;
+    await showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => _RiddleDialog(
+        index: 1,
+        total: 1,
+        category: riddle['category']!,
+        question: riddle['q']!,
+        answer: riddle['a']!,
+        isLast: true,
+      ),
+    );
   }
 
   Future<void> _toggleRecord() async {

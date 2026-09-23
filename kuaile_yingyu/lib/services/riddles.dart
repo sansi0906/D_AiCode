@@ -53,9 +53,19 @@ Future<List<Map<String, String>>> pickRiddles(int n) async {
   final seen = await ProgressDb.getSeenRiddleIds();
   var pool = all.where((r) => !seen.contains(r['id'])).toList()..shuffle();
   if (pool.length < n) {
-    // 题库快看完了：重置记录，避免长期只出重复题
     await ProgressDb.clearSeenRiddles();
     pool = [...all]..shuffle();
   }
   return pool.take(n).toList();
+}
+
+/// 根据跟读项 id 固定绑定一道知识卡（一一对应，不重复）
+Map<String, String>? riddleForItem(String itemId) {
+  final all = _cache;
+  if (all == null || all.isEmpty) return null;
+  var hash = 0;
+  for (final code in itemId.codeUnits) {
+    hash = (hash * 31 + code) & 0x7fffffff;
+  }
+  return all[hash % all.length];
 }
