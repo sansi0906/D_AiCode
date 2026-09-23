@@ -216,6 +216,9 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
     } else {
       await AudioService.stop();
       final child = await ProgressDb.getSetting('child_name', def: '小朋友');
+      // 预热识别模型（首次约1-3秒，之后瞬间完成）
+      await SpeechService.warmup();
+      if (!mounted) return;
       final ok = await SpeechService.startRecording(
         widget.item.text,
         widget.item.grammarWords,
@@ -529,6 +532,12 @@ class _ResultCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text('${result.score.toStringAsFixed(0)} 分',
               style: const TextStyle(fontSize: 20, color: kDark)),
+          if (result.score >= 35 && result.score <= 45)
+            const Padding(
+              padding: EdgeInsets.only(top: 6),
+              child: Text('读慢一点、声音大一点，靠近手机再试一次',
+                  style: TextStyle(fontSize: 18, color: const Color(0xFF8A8070))),
+            ),
         ],
       ),
     );

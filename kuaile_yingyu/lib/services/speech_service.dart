@@ -254,6 +254,13 @@ class SpeechService {
     return n == 0 ? 0 : voiced / n;
   }
 
+  /// 预热模型（在开始录音前调用，避免录完才等加载）
+  static Future<void> warmup() async {
+    try {
+      await _ensureModel();
+    } catch (_) {}
+  }
+
   /// 重置（可选）
   static Future<void> dispose() async {}
 }
