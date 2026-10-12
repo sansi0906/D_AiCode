@@ -174,6 +174,7 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
   /// 满分奖励：每个跟读项绑定固定一道知识卡，第一次 ≥85 分弹出，
   /// 之后再满分不再重复弹（已读过就跳过）
   Future<void> _showRiddleReward() async {
+    await loadRiddles(); // 确保题库已加载，否则 riddleForItem 取不到缓存会不弹
     final riddle = riddleForItem(widget.item.id);
     if (riddle == null) return;
     final seen = await ProgressDb.getSeenRiddleIds();
