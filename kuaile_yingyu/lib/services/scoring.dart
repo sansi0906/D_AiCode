@@ -2,34 +2,93 @@
 /// norm → 词级 Levenshtein → WER → 0-100 分 → 五档星级
 library;
 
-const Map<String, String> _contractions = {
-  "it's": "it is", "that's": "that is", "what's": "what is", "there's": "there is",
-  "here's": "here is", "where's": "where is", "how's": "how is", "who's": "who is",
-  "he's": "he is", "she's": "she is", "we're": "we are", "they're": "they are",
-  "you're": "you are", "i'm": "i am", "i've": "i have", "we've": "we have",
-  "you've": "you have", "they've": "they have", "don't": "do not", "doesn't": "does not",
-  "didn't": "did not", "isn't": "is not", "aren't": "are not", "wasn't": "was not",
-  "weren't": "were not", "can't": "can not", "couldn't": "could not", "won't": "will not",
-  "wouldn't": "would not", "shouldn't": "should not", "let's": "let us", "i'll": "i will",
-  "you'll": "you will", "we'll": "we will", "they'll": "they will",
-};
+/// 同音/缩略等价组（跟读打分宽容匹配用）
+/// 孩子读 "it's a dog"，ASR 可能输出 its / it is / it，都算标准。
+const List<Set<String>> _soundGroups = [
+  {'it\'s', 'its', 'it', 'is'},
+  {'you\'re', 'your', 'you', 'are'},
+  {'they\'re', 'their', 'there', 'they', 'are'},
+  {'we\'re', 'were', 'we', 'are'},
+  {'he\'s', 'his', 'he', 'is'},
+  {'she\'s', 'she', 'is'},
+  {'who\'s', 'whose', 'who', 'is'},
+  {'where\'s', 'where', 'is'},
+  {'what\'s', 'what', 'is'},
+  {'there\'s', 'there', 'is'},
+  {'here\'s', 'here', 'is'},
+  {'i\'m', 'im', 'i', 'am', 'eye'},
+  {'i\'ve', 'i', 'have'},
+  {'we\'ve', 'we', 'have'},
+  {'you\'ve', 'you', 'have'},
+  {'they\'ve', 'they', 'have'},
+  {'don\'t', 'dont', 'do', 'not'},
+  {'doesn\'t', 'doesnt', 'does', 'not'},
+  {'can\'t', 'cant', 'can', 'not'},
+  {'won\'t', 'wont', 'will', 'not'},
+  {'isn\'t', 'isnt', 'is', 'not'},
+  {'aren\'t', 'arent', 'are', 'not'},
+  {'wasn\'t', 'wasnt', 'was', 'not'},
+  {'weren\'t', 'werent', 'were', 'not'},
+  {'didn\'t', 'didnt', 'did', 'not'},
+  {'couldn\'t', 'couldnt', 'could', 'not'},
+  {'wouldn\'t', 'wouldnt', 'would', 'not'},
+  {'shouldn\'t', 'shouldnt', 'should', 'not'},
+  {'let\'s', 'lets', 'let', 'us'},
+  {'i\'ll', 'ill', 'i', 'will'},
+  {'you\'ll', 'youll', 'you', 'will'},
+  {'we\'ll', 'well', 'we', 'will'},
+  {'they\'ll', 'theyll', 'they', 'will'},
+  {'he\'ll', 'hell', 'he', 'will'},
+  {'she\'ll', 'shell', 'she', 'will'},
+  // 小学教材常见同音词（V1.3.5）
+  {'to', 'two', 'too'},
+  {'for', 'four'},
+  {'red', 'read'},
+  {'no', 'know'},
+  {'nose', 'knows'},
+  {'see', 'sea'},
+  {'by', 'buy', 'bye'},
+  {'our', 'hour'},
+  {'one', 'won'},
+  {'son', 'sun'},
+  {'right', 'write'},
+  {'new', 'knew'},
+  {'hi', 'high'},
+  {'be', 'bee'},
+  {'here', 'hear'},
+  {'meet', 'meat'},
+  {'week', 'weak'},
+  {'pair', 'pear'},
+  {'blue', 'blew'},
+  {'ate', 'eight'},
+];
 
-/// lowercase + 弯引号归一 + 缩写展开 + 去标点 + 分词
+/// 两个词是否发音等价（同组即等价）
+bool sameGroup(String a, String b) {
+  if (a == b) return true;
+  for (final g in _soundGroups) {
+    if (g.contains(a) && g.contains(b)) return true;
+  }
+  return false;
+}
+
+/// 返回词所在同音组的全部成员（含自身）；无组则只有自身
+Set<String> soundGroupMembers(String w) {
+  for (final g in _soundGroups) {
+    if (g.contains(w)) return g;
+  }
+  return {w};
+}
+
+/// lowercase + 弯引号归一 + 去标点 + 分词
+/// V1.3.5：不再展开缩写，保留原词（it's 保持 it's），
+/// 等价匹配交给 sameGroup（it's/its/it is 互相算对）。
 List<String> norm(String s) {
   s = s.toLowerCase();
-  // 弯引号（教材文本常用 ’ ‘）归一为 ASCII 撇号，否则缩写展开失效
+  // 弯引号（教材文本常用 ’ ‘）归一为 ASCII 撇号
   s = s.replaceAll('’', "'").replaceAll('‘', "'");
   s = s.replaceAll(RegExp(r"[^a-z0-9' ]"), ' ');
-  final words = s.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).toList();
-  final out = <String>[];
-  for (final w in words) {
-    if (_contractions.containsKey(w)) {
-      out.addAll(_contractions[w]!.split(' '));
-    } else {
-      out.add(w);
-    }
-  }
-  return out;
+  return s.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).toList();
 }
 
 /// 词级编辑距离（DP）
@@ -44,7 +103,7 @@ int levenshtein(List<String> a, List<String> b) {
   }
   for (var i = 1; i <= m; i++) {
     for (var j = 1; j <= n; j++) {
-      final cost = a[i - 1] == b[j - 1] ? 0 : 1;
+      final cost = sameGroup(a[i - 1], b[j - 1]) ? 0 : 1;
       dp[i][j] = [
         dp[i - 1][j] + 1,
         dp[i][j - 1] + 1,
@@ -67,7 +126,7 @@ List<bool> levAlign(List<String> ref, List<String> hyp) {
   }
   for (var i = 1; i <= m; i++) {
     for (var j = 1; j <= n; j++) {
-      final cost = ref[i - 1] == hyp[j - 1] ? 0 : 1;
+      final cost = sameGroup(ref[i - 1], hyp[j - 1]) ? 0 : 1;
       dp[i][j] = [
         dp[i - 1][j] + 1,
         dp[i][j - 1] + 1,
@@ -78,8 +137,8 @@ List<bool> levAlign(List<String> ref, List<String> hyp) {
   var i = m, j = n;
   final matched = List<bool>.filled(m, false);
   while (i > 0 || j > 0) {
-    if (i > 0 && j > 0 && dp[i][j] == dp[i - 1][j - 1] + (ref[i - 1] == hyp[j - 1] ? 0 : 1)) {
-      if (ref[i - 1] == hyp[j - 1]) matched[i - 1] = true;
+    if (i > 0 && j > 0 && dp[i][j] == dp[i - 1][j - 1] + (sameGroup(ref[i - 1], hyp[j - 1]) ? 0 : 1)) {
+      if (sameGroup(ref[i - 1], hyp[j - 1])) matched[i - 1] = true;
       i--;
       j--;
     } else if (i > 0 && dp[i][j] == dp[i - 1][j] + 1) {
@@ -114,6 +173,10 @@ List<bool> levAlign(List<String> ref, List<String> hyp) {
 
 /// 覆盖率打分（V1.1.1 修复）：hyp 全局去重后按序匹配 ref 词，
 /// 修复 grammar 识别重复词导致严格编辑距离误判 0 分的问题。
+/// V1.3.5：匹配用 sameGroup，支持三种情况：
+///   1) 吞词：hyp 一个词吃掉 ref 连续多个同组词（we're 吃掉 "we are"）
+///   2) 漏读：ref 词没读（跳过最多 2 个不匹配 ref 词继续找）
+///   3) 多读：hyp 多出的词直接跳过
 /// 完全乱读（[unk] 占位）覆盖率为 0 → 0 分；目标词全部命中 → 100 分。
 double coverageScore(String ref, String hyp) {
   final r = norm(ref);
@@ -121,15 +184,51 @@ double coverageScore(String ref, String hyp) {
   if (r.isEmpty) return 100.0;
   final uniq = <String>[];
   for (final w in h) {
-    if (!uniq.contains(w)) uniq.add(w);
+    if (!uniq.any((u) => sameGroup(u, w))) uniq.add(w);
   }
   var matched = 0;
-  var p = 0;
-  for (final w in r) {
-    final idx = uniq.indexOf(w, p);
-    if (idx >= 0) {
-      matched++;
-      p = idx + 1;
+  var rp = 0;
+  var wp = 0;
+  while (rp < r.length && wp < uniq.length) {
+    final wh = uniq[wp];
+    // 1) 优先吞词：wh 与 ref 连续 1-3 个词全部同组
+    var consumed = 0;
+    for (var k = 3; k >= 1; k--) {
+      if (rp + k <= r.length) {
+        var allSame = true;
+        for (var t = 0; t < k; t++) {
+          if (!sameGroup(r[rp + t], wh)) {
+            allSame = false;
+            break;
+          }
+        }
+        if (allSame) {
+          consumed = k;
+          break;
+        }
+      }
+    }
+    if (consumed > 0) {
+      matched += consumed;
+      rp += consumed;
+      wp++;
+      continue;
+    }
+    // 2) 漏读：wh 与当前 ref 词不同组，允许跳过最多 2 个漏读词再匹配
+    var found = false;
+    for (var skip = 1; skip <= 2 && rp + skip < r.length; skip++) {
+      if (sameGroup(r[rp + skip], wh)) {
+        rp += skip; // 跳过的 ref 词视为漏读，不计分
+        matched++;
+        rp++;
+        wp++;
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      // 3) 多读/错词：wh 无法匹配，跳过该 hyp 词
+      wp++;
     }
   }
   return matched / r.length * 100.0;

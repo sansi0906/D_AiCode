@@ -37,9 +37,16 @@ class Item {
   String get audioAsset => 'assets/audio/$audio';
   String get imageAsset => 'assets/images/$image';
 
-  /// 语法词典：跟读打分 grammar 约束用（norm 展开：I'm→i am，引号归一）
-  /// 必须用展开后的词，否则 Vosk grammar 词表里没有 am，读得标准也拿不到满分
-  List<String> get grammarWords => norm(text);
+  /// 语法词典：跟读打分 grammar 约束用（V1.3.5）
+  /// 每个词展开同音组全部成员（it's/its/it/is 都进词表），
+  /// 让 Vosk 识别 "it's a dog" 时能直接输出 it's 或 its，而不是 [unk]。
+  List<String> get grammarWords {
+    final out = <String>{};
+    for (final w in norm(text)) {
+      out.addAll(soundGroupMembers(w));
+    }
+    return out.toList();
+  }
 }
 
 class Unit {
