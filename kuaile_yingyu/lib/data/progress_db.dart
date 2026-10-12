@@ -39,7 +39,31 @@ class ProgressDb {
         seen_at TEXT
       )
     ''');
+    // V1.3.4 星级迁移：旧五档归一为三档，从此保存/显示统一用三档
+    await _migrateStarsTo3();
     return _db!;
+  }
+
+  /// 旧版本把五档 star 存进了 progress 表，导致列表星级虚高。
+  /// 一次性迁移：加 star_mode 列，把五档(1-5)归一为三档(1-3)并打标 new3。
+  static Future<void> _migrateStarsTo3() async {
+    final db = _db!;
+    final cols = await db.rawQuery('PRAGMA table_info(progress)');
+    final hasMode = cols.any((c) => c['name'] == 'star_mode');
+    if (!hasMode) {
+      await db.execute('ALTER TABLE progress ADD COLUMN star_mode TEXT DEFAULT "old5"');
+      final rows = await db.query('progress', where: "star_mode = 'old5'");
+      for (final r in rows) {
+        final s = r['stars'] as int;
+        final nd = s >= 5 ? 3 : (s >= 3 ? 2 : 1);
+        await db.update(
+          'progress',
+          {'stars': nd, 'star_mode': 'new3'},
+          where: 'item_id = ?',
+          whereArgs: [r['item_id']],
+        );
+      }
+    }
   }
 
   /// 读取一条设置；无记录返回 [def]
@@ -60,6 +84,7 @@ class ProgressDb {
   }
 
   /// 保存一次跟读结果；星级 0 表示仅记录"已学"
+  /// V1.3.4：统一存三档（1-3），不再存五档
   static Future<void> saveResult(String itemId, int stars) async {
     final db = await _open();
     await db.insert(
@@ -69,6 +94,7 @@ class ProgressDb {
         'stars': stars,
         'done': 1,
         'updated': DateTime.now().toIso8601String(),
+        'star_mode': 'new3',
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );

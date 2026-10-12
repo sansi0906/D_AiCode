@@ -207,7 +207,9 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
         _state = _RecState.idle;
       });
       if (res != null && res.error == null) {
-        await ProgressDb.saveResult(widget.unit.progressKey(widget.item), res.star);
+        // V1.3.4：存三档 displayStars，避免五档/三档混用导致列表星级虚高
+        await ProgressDb.saveResult(
+            widget.unit.progressKey(widget.item), res.displayStars);
       }
       // V1.2.4 满分奖励：得 100 分弹出 1 道知识卡（题库 916 道不重复）
       if (res != null && res.error == null && res.score >= 85) {
