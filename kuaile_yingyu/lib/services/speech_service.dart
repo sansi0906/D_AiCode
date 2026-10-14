@@ -75,9 +75,36 @@ class SpeechService {
   static String _currentBookId = '';
   static String _currentItemId = '';
 
-  /// 停止录音并打分。录音会本地归档保存（V1.1），不随打分删除。
-  static Future<SpeakResult?> stopAndScore() async {
+  /// 取消录音（V1.3.7）：录音中退出页面时调用，
+  /// 停止 recorder、删除临时 WAV、清理静态引用，避免录音泄漏。
+  static Future<void> cancelRecording() async {
     final recorder = _currentRecorder;
+    final wavPath = _currentWav;
+    _currentRecorder = null;
+    _currentWav = null;
+    _currentRef = null;
+    _currentGrammar = const [];
+    if (recorder == null) return;
+    try {
+      final path = await recorder.stop();
+      if (path != null) {
+        final f = File(path);
+        if (f.existsSync()) f.deleteSync();
+      }
+    } catch (_) {}
+    try {
+      await recorder.dispose();
+    } catch (_) {}
+    if (wavPath != null) {
+      try {
+        final f = File(wavPath);
+        if (f.existsSync()) f.deleteSync();
+      } catch (_) {}
+    }
+  }
+
+  /// 停止录音并打分。录音会本地归档保存（V1.1），不随打分删除。
+  static Future<SpeakResult?> stopAndScore() async {    final recorder = _currentRecorder;
     final wavPath = _currentWav;
     final ref = _currentRef;
     final grammar = _currentGrammar;
@@ -166,8 +193,10 @@ class SpeechService {
     try {
       final ts = DateTime.now();
       String two(int v) => v.toString().padLeft(2, '0');
+      // V1.3.7：毫秒并入时间段（yyyyMMdd_HHmmssSSS），避免同秒同名覆盖；
+      // 文件名仍为 6 段，Android 侧 cleanupOldRecordings 的解析不受影响。
       final stamp = '${ts.year}${two(ts.month)}${two(ts.day)}_'
-          '${two(ts.hour)}${two(ts.minute)}${two(ts.second)}';
+          '${two(ts.hour)}${two(ts.minute)}${two(ts.second)}${two(ts.millisecond)}';
       final child = _sanitize(_currentChild.isEmpty ? '小朋友' : _currentChild);
       final book = _currentBookId.isEmpty ? 'b0' : _currentBookId;
       final item = _currentItemId.isEmpty ? 'x' : _currentItemId;
@@ -211,26 +240,48 @@ class SpeechService {
     return m?.group(1) ?? '';
   }
 
-  /// 解析 WAV（PCM16 mono）→ 字节流
+  /// 解析 WAV（PCM16 mono 16kHz）→ 字节流
+  /// V1.3.7：解析 fmt chunk 校验编码/声道/采样率/位深，
+  /// 不符合预期（非 PCM16 mono 16kHz）返回空，避免格式异常时静默错乱。
   static Future<Uint8List> _readPcm16FromWav(String path) async {
     final bytes = await File(path).readAsBytes();
     // 简单 RIFF 解析
     if (bytes.length < 44) return Uint8List(0);
-    // data chunk 定位
+    // RIFF 头校验
+    if (bytes[0] != 0x52 || bytes[1] != 0x49 || bytes[2] != 0x46 || bytes[3] != 0x46) {
+      return Uint8List(0); // 非 RIFF
+    }
     var pos = 12;
+    int? fmtChannels, fmtRate, fmtBits, fmtAudio;
+    var dataStart = -1;
+    var dataLen = 0;
     while (pos + 8 <= bytes.length) {
       final id = String.fromCharCodes(bytes.sublist(pos, pos + 4));
       final size = bytes[pos + 4] |
           (bytes[pos + 5] << 8) |
           (bytes[pos + 6] << 16) |
           (bytes[pos + 7] << 24);
-      if (id == 'data') {
-        final dataLen = size < bytes.length - pos - 8 ? size : bytes.length - pos - 8;
-        return Uint8List.fromList(bytes.sublist(pos + 8, pos + 8 + dataLen));
+      if (id == 'fmt ') {
+        fmtAudio = bytes[pos + 8] | (bytes[pos + 9] << 8);
+        fmtChannels = bytes[pos + 10] | (bytes[pos + 11] << 8);
+        fmtRate = bytes[pos + 12] |
+            (bytes[pos + 13] << 8) |
+            (bytes[pos + 14] << 16) |
+            (bytes[pos + 15] << 24);
+        fmtBits = bytes[pos + 22] | (bytes[pos + 23] << 8);
+      } else if (id == 'data') {
+        dataStart = pos + 8;
+        dataLen = size < bytes.length - dataStart ? size : bytes.length - dataStart;
+        break;
       }
       pos += 8 + size + (size & 1);
     }
-    return Uint8List(0);
+    // 仅接受 PCM(1) / 单声道 / 16kHz / 16bit
+    if (fmtAudio != 1 || fmtChannels != 1 || fmtRate != 16000 || fmtBits != 16) {
+      return Uint8List(0);
+    }
+    if (dataStart < 0) return Uint8List(0);
+    return Uint8List.fromList(bytes.sublist(dataStart, dataStart + dataLen));
   }
 
   /// 简单 VAD：16kHz PCM16，20ms 窗能量检测，返回有声帧占比。

@@ -31,6 +31,14 @@ class MainActivity : FlutterActivity() {
                             result.success(saveWav(srcPath, fileName, indexJson))
                         }
                     }
+                    "copyRecording" -> {
+                        val fileName = call.argument<String>("fileName")
+                        if (fileName == null) {
+                            result.error("BAD_ARG", "missing fileName", null)
+                        } else {
+                            result.success(copyRecordingToCache(fileName))
+                        }
+                    }
                     "readIndex" -> result.success(readIndex())
                     "clearAll" -> {
                         clearAll()
@@ -117,6 +125,20 @@ class MainActivity : FlutterActivity() {
     private fun readIndex(): String? {
         val f = File(downloadDir(), "index.json")
         return if (f.exists()) f.readText() else null
+    }
+
+    /// 把 Download/快乐英语录音/ 下某条录音拷贝到 app 缓存目录并返回路径（供回听）。
+    /// 文件已被"只保留最高分"清理时返回 null。
+    private fun copyRecordingToCache(fileName: String): String? = try {
+        val src = File(downloadDir(), fileName)
+        if (!src.exists()) return null
+        val cacheDir = File(cacheDir, "recordings")
+        if (!cacheDir.exists()) cacheDir.mkdirs()
+        val dest = File(cacheDir, fileName)
+        src.copyTo(dest, overwrite = true)
+        dest.absolutePath
+    } catch (_: Exception) {
+        null
     }
 
     private fun clearAll() {

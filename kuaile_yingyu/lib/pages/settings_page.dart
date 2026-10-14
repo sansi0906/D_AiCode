@@ -4,6 +4,7 @@ import '../data/progress_db.dart';
 import '../main.dart';
 import '../services/audio_service.dart';
 import '../services/recordings_store.dart';
+import 'recordings_page.dart';
 
 /// 设置页：孩子昵称、慢速播放、清空进度、录音管理、关于
 class SettingsPage extends StatefulWidget {
@@ -224,7 +225,24 @@ class _SettingsPageState extends State<SettingsPage> {
                     '（保存在手机本地，可随时清理）',
                     style: const TextStyle(fontSize: 18, color: kDark)),
                 const SizedBox(height: 8),
-                if (_recStats.count > 0)
+                if (_recStats.count > 0) ...[
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton.icon(
+                      onPressed: () async {
+                        await Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => const RecordingsPage(),
+                        ));
+                        await _loadRecStats();
+                      },
+                      icon: const Icon(Icons.play_circle_outline, size: 22),
+                      label: const Text('回听录音', style: TextStyle(fontSize: 20)),
+                      style: TextButton.styleFrom(
+                        foregroundColor: kGreen,
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                      ),
+                    ),
+                  ),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: TextButton.icon(
@@ -237,6 +255,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ),
+                ],
               ],
             ),
           ),

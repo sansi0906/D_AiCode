@@ -8,7 +8,7 @@ const List<Set<String>> _soundGroups = [
   {'it\'s', 'its', 'it', 'is'},
   {'you\'re', 'your', 'you', 'are'},
   {'they\'re', 'their', 'there', 'they', 'are'},
-  {'we\'re', 'were', 'we', 'are'},
+  {'we\'re', 'we', 'are'},
   {'he\'s', 'his', 'he', 'is'},
   {'she\'s', 'she', 'is'},
   {'who\'s', 'whose', 'who', 'is'},
@@ -199,7 +199,9 @@ List<bool> levAlign(List<String> ref, List<String> hyp) {
 ///   1) 吞词：hyp 一个词吃掉 ref 连续多个同组词（we're 吃掉 "we are"）
 ///   2) 漏读：ref 词没读（跳过最多 2 个不匹配 ref 词继续找）
 ///   3) 多读：hyp 多出的词直接跳过
-/// 完全乱读（[unk] 占位）覆盖率为 0 → 0 分；目标词全部命中 → 100 分。
+/// V1.3.7（测试审计修复）：多读/乱读的无关词不再白送，每个无关词扣 10 分，
+///   消除"目标词全读对后乱读一堆词仍 100 分"的漏洞。
+/// 完全乱读（[unk] 占位）覆盖率为 0 → 0 分；目标词全部命中且无乱读 → 100 分。
 double coverageScore(String ref, String hyp) {
   final r = norm(ref);
   final h = norm(hyp);
@@ -209,10 +211,17 @@ double coverageScore(String ref, String hyp) {
     if (!uniq.any((u) => sameGroup(u, w))) uniq.add(w);
   }
   var matched = 0;
+  var bad = 0; // 无关词（多读/乱读）数量，每个扣 10 分
   var rp = 0;
   var wp = 0;
-  while (rp < r.length && wp < uniq.length) {
+  while (wp < uniq.length) {
     final wh = uniq[wp];
+    // ref 词已全部匹配完，剩余 hyp 词全是无关词（V1.3.7 修复：此前循环提前退出漏计）
+    if (rp >= r.length) {
+      bad++;
+      wp++;
+      continue;
+    }
     // 1) 优先吞词：wh 与 ref 连续 1-3 个词全部同组
     var consumed = 0;
     for (var k = 3; k >= 1; k--) {
@@ -249,11 +258,14 @@ double coverageScore(String ref, String hyp) {
       }
     }
     if (!found) {
-      // 3) 多读/错词：wh 无法匹配，跳过该 hyp 词
+      // 3) 多读/错词：wh 无法匹配，记为无关词（去重后计数），跳过该 hyp 词
+      bad++;
       wp++;
     }
   }
-  return matched / r.length * 100.0;
+  var base = matched / r.length * 100.0;
+  var score = base - bad * 10.0;
+  return score < 0 ? 0.0 : score;
 }
 
 /// POC 五档映射：>=90 5星；75-89 4星；60-74 3星；45-59 2星；<45 1星
