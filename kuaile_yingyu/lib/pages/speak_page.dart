@@ -69,6 +69,7 @@ class _SpeakPageState extends State<SpeakPage> {
         final it = items[i];
         final r = _progress?[widget.unit.progressKey(it)];
         final stars = (r?['stars'] as int? ?? 0);
+        final score = (r?['score'] as num?)?.toDouble() ?? -1;
         return Padding(
           padding: const EdgeInsets.only(bottom: 14),
           child: InkWell(
@@ -113,6 +114,15 @@ class _SpeakPageState extends State<SpeakPage> {
                     ),
                   ),
                   _StarRow(star5: stars, size: starSize),
+                  if (score >= 0)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 6),
+                      child: Text('${score.round()}分',
+                          style: TextStyle(
+                              fontSize: lower ? 16 : 14,
+                              fontWeight: FontWeight.w600,
+                              color: kDark)),
+                    ),
                   SizedBox(width: lower ? 2 : 2),
                   Icon(Icons.chevron_right, color: kOrange, size: arrowSize),
                 ],
@@ -167,6 +177,7 @@ enum _RecState { idle, recording, scoring }
 
 class _SpeakDetailPageState extends State<SpeakDetailPage> {
   _RecState _state = _RecState.idle;
+  bool _preparing = false; // 首次加载语音引擎中
   SpeakResult? _result;
   Duration _elapsed = Duration.zero;
   Timer? _timer;
@@ -174,8 +185,8 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
   /// 满分奖励：每个跟读项绑定固定一道知识卡，第一次 ≥85 分弹出，
   /// 之后再满分不再重复弹（已读过就跳过）
   Future<void> _showRiddleReward() async {
-    await loadRiddles(); // 确保题库已加载，否则 riddleForItem 取不到缓存会不弹
-    final riddle = riddleForItem(widget.item.id);
+    await loadRiddles(); // 确保题库已加载
+    final riddle = await riddleForItem(widget.item.id);
     if (riddle == null) return;
     final seen = await ProgressDb.getSeenRiddleIds();
     if (seen.contains(riddle['id'])) return; // 已读过，不再弹
@@ -197,6 +208,8 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
   }
 
   Future<void> _toggleRecord() async {
+    // 打分中 / 准备中屏蔽连点，避免打断进行中的流程（V1.3.7）
+    if (_state == _RecState.scoring || _preparing) return;
     if (_state == _RecState.recording) {
       _stopTimer();
       setState(() => _state = _RecState.scoring);
@@ -207,11 +220,12 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
         _state = _RecState.idle;
       });
       if (res != null && res.error == null) {
-        // V1.3.4：存三档 displayStars，避免五档/三档混用导致列表星级虚高
+        // V1.3.4：存三档 displayStars；V1.3.7：同时存具体分数供家长查看
         await ProgressDb.saveResult(
-            widget.unit.progressKey(widget.item), res.displayStars);
+            widget.unit.progressKey(widget.item), res.displayStars,
+            score: res.score);
       }
-      // V1.2.4 满分奖励：得 100 分弹出 1 道知识卡（题库 916 道不重复）
+      // V1.2.4 满分奖励：得分达标弹出知识卡
       if (res != null && res.error == null && res.score >= 85) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (mounted) _showRiddleReward();
@@ -220,9 +234,11 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
     } else {
       await AudioService.stop();
       final child = await ProgressDb.getSetting('child_name', def: '小朋友');
-      // 预热识别模型（首次约1-3秒，之后瞬间完成）
+      // 首次预热语音引擎约 1-3 秒，期间给出准备中反馈（V1.3.7）
+      if (mounted) setState(() => _preparing = true);
       await SpeechService.warmup();
       if (!mounted) return;
+      setState(() => _preparing = false);
       final ok = await SpeechService.startRecording(
         widget.item.text,
         widget.item.grammarWords,
@@ -259,6 +275,10 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
   void dispose() {
     _stopTimer();
     AudioService.stop();
+    // V1.3.7：录音中点返回/退出页面时，停止录音并清理临时文件，避免泄漏
+    if (_state == _RecState.recording) {
+      SpeechService.cancelRecording();
+    }
     super.dispose();
   }
 
@@ -350,10 +370,16 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
                               height: 124,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: _state == _RecState.recording ? kOrange : kGreen,
+                                color: _preparing
+                                    ? kYellow
+                                    : (_state == _RecState.recording ? kOrange : kGreen),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: (_state == _RecState.recording ? kOrange : kGreen)
+                                    color: (_preparing
+                                            ? kYellow
+                                            : (_state == _RecState.recording
+                                                ? kOrange
+                                                : kGreen))
                                         .withValues(alpha: 0.4),
                                     blurRadius: 20,
                                     spreadRadius: 4,
@@ -361,9 +387,13 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
                                 ],
                               ),
                               child: Icon(
-                                _state == _RecState.recording
-                                    ? Icons.stop
-                                    : (_state == _RecState.scoring ? Icons.hourglass_top : Icons.mic),
+                                _preparing
+                                    ? Icons.hourglass_top
+                                    : (_state == _RecState.recording
+                                        ? Icons.stop
+                                        : (_state == _RecState.scoring
+                                            ? Icons.hourglass_top
+                                            : Icons.mic)),
                                 color: kWhite,
                                 size: 56,
                               ),
@@ -371,11 +401,16 @@ class _SpeakDetailPageState extends State<SpeakDetailPage> {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            switch (_state) {
-                              _RecState.idle => _result == null ? '点麦克风，大声读出来' : '再来一次，会更棒！',
-                              _RecState.recording => '正在录音 ${_elapsed.inSeconds} 秒…点一下结束',
-                              _RecState.scoring => '正在打分，请稍候…',
-                            },
+                            _preparing
+                                ? '正在准备语音引擎，请稍候…'
+                                : switch (_state) {
+                                    _RecState.idle => _result == null
+                                        ? '点麦克风，大声读出来'
+                                        : '再来一次，会更棒！',
+                                    _RecState.recording =>
+                                      '正在录音 ${_elapsed.inSeconds} 秒…点一下结束',
+                                    _RecState.scoring => '正在打分，请稍候…',
+                                  },
                             textAlign: TextAlign.center,
                             style: const TextStyle(fontSize: 21, color: kDark),
                           ),
@@ -540,7 +575,7 @@ class _ResultCard extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(top: 6),
               child: Text('读慢一点、声音大一点，靠近手机再试一次',
-                  style: TextStyle(fontSize: 18, color: const Color(0xFF8A8070))),
+                  style: TextStyle(fontSize: 18, color: Color(0xFF8A8070))),
             ),
         ],
       ),

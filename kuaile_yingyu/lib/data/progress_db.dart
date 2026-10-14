@@ -41,7 +41,18 @@ class ProgressDb {
     ''');
     // V1.3.4 星级迁移：旧五档归一为三档，从此保存/显示统一用三档
     await _migrateStarsTo3();
+    // V1.3.7 分数列：给旧库补 score 列（旧数据 -1 表示无分数）
+    await _ensureScoreColumn();
     return _db!;
+  }
+
+  static Future<void> _ensureScoreColumn() async {
+    final db = _db!;
+    final cols = await db.rawQuery('PRAGMA table_info(progress)');
+    final hasScore = cols.any((c) => c['name'] == 'score');
+    if (!hasScore) {
+      await db.execute('ALTER TABLE progress ADD COLUMN score REAL DEFAULT -1');
+    }
   }
 
   /// 旧版本把五档 star 存进了 progress 表，导致列表星级虚高。
@@ -85,7 +96,9 @@ class ProgressDb {
 
   /// 保存一次跟读结果；星级 0 表示仅记录"已学"
   /// V1.3.4：统一存三档（1-3），不再存五档
-  static Future<void> saveResult(String itemId, int stars) async {
+  /// V1.3.7：同时保存具体分数（score<0 表示旧数据无分数）
+  static Future<void> saveResult(String itemId, int stars,
+      {double score = -1}) async {
     final db = await _open();
     await db.insert(
       'progress',
@@ -95,6 +108,7 @@ class ProgressDb {
         'done': 1,
         'updated': DateTime.now().toIso8601String(),
         'star_mode': 'new3',
+        'score': score,
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
